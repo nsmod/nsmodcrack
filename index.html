@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#07090d" name="theme-color"/>
+<meta content="dark" name="color-scheme"/>
+<title>NSMOD — iOS &amp; App Hub</title>
+<meta content="NSMOD — kho ứng dụng, tiện ích và bản cập nhật dành cho iOS/Android." name="description"/>
+<meta content="NSMOD, iOS, app, mod, download" name="keywords"/>
+<meta content="NSMOD" name="author"/>
+<meta content="website" property="og:type"/>
+<meta content="NSMOD — iOS &amp; App Hub" property="og:title"/>
+<meta content="Kho ứng dụng và bản cập nhật của NSMOD." property="og:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%2307090d%22/&gt;&lt;text x=%2250%22 y=%2262%22 text-anchor=%22middle%22 font-size=%2242%22 font-family=%22Arial%22 font-weight=%22700%22 fill=%22%236cf0c2%22&gt;NS&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #07090d;
+  --bg-soft: #0b0f14;
+  --surface: rgba(16, 21, 28, 0.88);
+  --surface-strong: #111720;
+  --surface-2: #151c26;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --text: #f4f7fb;
+  --muted: #8f9aaa;
+  --accent: #6cf0c2;
+  --accent-2: #7aa8ff;
+  --accent-3: #b289ff;
+  --danger: #ff6b78;
+  --radius-xl: 28px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% -10%, rgba(108, 240, 194, .09), transparent 34rem),
+    radial-gradient(circle at 90% 10%, rgba(122, 168, 255, .08), transparent 32rem),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+body.modal-open { overflow: hidden; }
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.shell { width: min(1180px, calc(100% - 36px)); margin-inline: auto; }
+.noise { position: fixed; inset: 0; pointer-events: none; opacity: .035; z-index: 20; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); mix-blend-mode: soft-light; }
+.ambient { position: fixed; width: 420px; height: 420px; border-radius: 50%; filter: blur(100px); opacity: .08; pointer-events: none; z-index: -1; }
+.ambient-one { background: var(--accent); top: 18%; left: -220px; }
+.ambient-two { background: var(--accent-3); top: 62%; right: -220px; }
+
+.site-header { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(18px); background: rgba(7, 9, 13, .72); border-bottom: 1px solid rgba(255,255,255,.06); }
+.header-inner { min-height: 76px; display: flex; align-items: center; gap: 28px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.brand-mark { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; background: linear-gradient(145deg, rgba(108,240,194,.2), rgba(122,168,255,.13)); border: 1px solid rgba(108,240,194,.28); color: var(--accent); font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: -.06em; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 8px 30px rgba(108,240,194,.08); }
+.brand-mark.small { width: 34px; height: 34px; border-radius: 11px; font-size: .8rem; }
+.brand-copy { display: grid; gap: 1px; }
+.brand-copy strong { font-family: "Space Grotesk", sans-serif; letter-spacing: .03em; font-size: .98rem; }
+.brand-copy small { color: var(--muted); font-size: .68rem; }
+.top-nav { display: flex; align-items: center; gap: 24px; margin-left: auto; }
+.top-nav a { font-size: .86rem; font-weight: 600; color: #a9b3c1; transition: .2s ease; }
+.top-nav a:hover { color: var(--text); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.icon-btn { width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.035); color: #c5ced9; display: grid; place-items: center; cursor: pointer; position: relative; transition: .2s ease; }
+.icon-btn:hover { background: rgba(255,255,255,.07); border-color: var(--line-strong); color: var(--text); transform: translateY(-1px); }
+.icon-btn svg { font-size: 1.05rem; }
+.status-dot { position: absolute; width: 7px; height: 7px; right: 8px; top: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px #0a0e13; }
+
+.primary-btn, .ghost-btn { min-height: 46px; padding: 0 17px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-size: .86rem; font-weight: 750; transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; }
+.primary-btn { color: #06110d; background: var(--accent); box-shadow: 0 10px 32px rgba(108,240,194,.14); }
+.primary-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 36px rgba(108,240,194,.2); }
+.ghost-btn { color: #dfe6ee; border: 1px solid var(--line-strong); background: rgba(255,255,255,.025); }
+.ghost-btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.05); }
+.header-cta { min-height: 42px; border-radius: 13px; }
+
+.hero { padding: 86px 0 48px; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(380px, .88fr); gap: 54px; align-items: center; }
+.eyebrow, .section-kicker { color: var(--accent); font-weight: 800; letter-spacing: .14em; font-size: .7rem; }
+.eyebrow { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 20px; }
+.eyebrow span { width: 28px; height: 1px; background: var(--accent); box-shadow: 0 0 16px var(--accent); }
+.hero h1 { margin: 0; max-width: 760px; font-family: "Space Grotesk", sans-serif; font-size: clamp(2.7rem, 6vw, 5rem); line-height: .98; letter-spacing: -.055em; font-weight: 700; }
+.hero h1 em { color: transparent; font-style: normal; background: linear-gradient(95deg, var(--accent), #a6d8ff 52%, #c1a5ff); -webkit-background-clip: text; background-clip: text; }
+.hero-lead { color: #98a4b4; font-size: 1rem; line-height: 1.75; max-width: 650px; margin: 24px 0 0; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 30px; }
+.trust-row { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 25px; color: #7f8b9b; font-size: .74rem; font-weight: 600; }
+.trust-row span { display: inline-flex; align-items: center; gap: 7px; }
+.trust-row i { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px rgba(108,240,194,.6); }
+
+.hero-panel { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 24px; background: linear-gradient(180deg, rgba(20,27,36,.88), rgba(11,15,21,.95)); box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.045); }
+.panel-glow { position: absolute; width: 220px; height: 220px; right: -90px; top: -90px; border-radius: 50%; background: rgba(108,240,194,.16); filter: blur(52px); pointer-events: none; }
+.profile-line { display: flex; align-items: center; gap: 13px; position: relative; z-index: 1; }
+.avatar { width: 54px; height: 54px; border-radius: 17px; display: block; object-fit: cover; object-position: center; flex: 0 0 54px; background: #09100e; border: 1px solid rgba(108,240,194,.25); box-shadow: inset 0 0 24px rgba(108,240,194,.08), 0 8px 24px rgba(0,0,0,.24); }
+.muted { color: var(--muted); font-size: .68rem; font-weight: 600; }
+.profile-line h2 { margin: 3px 0 0; font-size: 1.05rem; font-family: "Space Grotesk"; }
+.verified { display: inline-grid; place-items: center; width: 17px; height: 17px; border-radius: 50%; font-size: .63rem; background: var(--accent); color: #06110d; margin-left: 3px; vertical-align: 2px; }
+.online-pill { margin-left: auto; display: inline-flex; align-items: center; gap: 7px; padding: 7px 9px; border-radius: 999px; border: 1px solid rgba(108,240,194,.16); background: rgba(108,240,194,.065); color: #baf8e2; font-size: .66rem; font-weight: 700; }
+.online-pill i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 9px rgba(108,240,194,.8); }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.stat-card { min-height: 92px; padding: 16px; border-radius: 17px; border: 1px solid rgba(255,255,255,.06); background: rgba(255,255,255,.025); display: grid; align-content: space-between; }
+.stat-card span { color: #7f8b9b; font-size: .68rem; font-weight: 650; }
+.stat-card strong { font-size: 1rem; font-family: "Space Grotesk"; letter-spacing: -.02em; }
+.accent-text { color: var(--accent); }
+.panel-note { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); margin-top: 18px; padding-top: 18px; }
+.panel-note-icon { width: 40px; height: 40px; border-radius: 13px; background: rgba(122,168,255,.08); border: 1px solid rgba(122,168,255,.14); color: #91b6ff; display: grid; place-items: center; flex-shrink: 0; }
+.panel-note strong { display: block; font-size: .78rem; }
+.panel-note p { margin: 4px 0 0; color: #7f8b9b; font-size: .69rem; line-height: 1.45; }
+
+.apps-section { padding: 70px 0 40px; }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 26px; }
+.section-head h2, .channel-banner h2 { margin: 7px 0 0; font-family: "Space Grotesk"; font-size: clamp(1.65rem, 3vw, 2.35rem); letter-spacing: -.04em; }
+.section-head p, .channel-banner p { color: var(--muted); margin: 8px 0 0; font-size: .84rem; }
+.section-tools { display: grid; gap: 10px; justify-items: end; }
+.search-box { width: min(320px, 100%); height: 44px; display: flex; align-items: center; gap: 9px; padding: 0 13px; border: 1px solid var(--line); border-radius: 13px; background: #0d1218; color: #697688; }
+.search-box:focus-within { border-color: rgba(108,240,194,.28); box-shadow: 0 0 0 4px rgba(108,240,194,.045); }
+.search-box input { width: 100%; border: 0; outline: 0; color: var(--text); background: transparent; font-size: .78rem; }
+.search-box input::placeholder { color: #626e7d; }
+.filters { display: flex; gap: 7px; }
+.filter-btn { border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.025); color: #8894a4; padding: 7px 11px; font-size: .68rem; font-weight: 700; cursor: pointer; }
+.filter-btn.active { background: rgba(108,240,194,.1); color: #c9fae8; border-color: rgba(108,240,194,.18); }
+
+.app-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.app-card { border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(17,23,32,.98), rgba(11,15,21,.98)); overflow: hidden; box-shadow: 0 12px 42px rgba(0,0,0,.16); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.app-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.14); box-shadow: 0 20px 56px rgba(0,0,0,.24); }
+.app-card[hidden] { display: none !important; }
+.app-media { width: 100%; aspect-ratio: 16 / 8.2; border: 0; padding: 0; position: relative; overflow: hidden; background: #0c1117; cursor: zoom-in; }
+.app-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(5,8,11,.72)); pointer-events: none; }
+.app-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease, filter .4s ease; }
+.app-card:hover .app-media img { transform: scale(1.025); filter: saturate(1.05); }
+.platform-chip, .platform-stack { position: absolute; z-index: 2; top: 13px; right: 13px; }
+.platform-stack { display: flex; gap: 5px; }
+.platform-stack .platform-chip { position: static; }
+.platform-chip { display: inline-flex; align-items: center; gap: 5px; padding: 6px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,.12); background: rgba(8,11,15,.7); backdrop-filter: blur(10px); color: #ecf2f7; font-size: .62rem; font-weight: 700; box-shadow: 0 6px 18px rgba(0,0,0,.18); }
+.platform-chip svg { width: .8rem; height: .8rem; fill: currentColor; stroke: none; }
+.platform-chip.android { color: #b9f79a; }
+.platform-chip.android svg { fill: none; stroke: currentColor; }
+.app-body { padding: 16px; }
+.app-title-row { display: flex; align-items: center; gap: 12px; }
+.app-icon { width: 48px; height: 48px; border-radius: 14px; object-fit: cover; border: 1px solid rgba(255,255,255,.09); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
+.app-title-row h3 { margin: 0; font-family: "Space Grotesk"; font-size: .92rem; letter-spacing: -.02em; }
+.app-title-row p { margin: 5px 0 0; color: var(--muted); font-size: .68rem; }
+.app-actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 15px; }
+.app-actions.one-action { grid-template-columns: 1fr; }
+.download-btn, .key-btn { min-height: 42px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 800; transition: .2s ease; }
+.download-btn { background: var(--accent); color: #06110d; gap: 8px; }
+.download-btn:hover { background: #85f5cf; }
+.key-btn { padding: 0 15px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.03); color: #d7dfe8; gap: 8px; }
+
+.key-btn svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  color: var(--accent);
+  stroke-width: 2;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.key-btn:hover svg {
+  transform: rotate(-8deg) scale(1.08);
+  filter: drop-shadow(0 0 6px rgba(108,240,194,.45));
+}
+.key-btn:hover { background: rgba(255,255,255,.065); }
+.empty-state { padding: 50px 20px; border: 1px dashed var(--line-strong); border-radius: var(--radius-lg); text-align: center; color: var(--muted); }
+.empty-state strong { display: block; color: var(--text); margin-bottom: 6px; }
+.empty-state span { font-size: .78rem; }
+
+
+/* ===== NSMOD DOWNLOAD MODAL ===== */
+.download-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  place-items: center;
+  padding: 18px;
+  background: rgba(3, 5, 8, .78);
+  backdrop-filter: blur(14px);
+}
+
+.download-modal.open { display: grid; }
+
+.download-dialog {
+  width: min(520px, 100%);
+  max-height: min(760px, calc(100dvh - 28px));
+  overflow: auto;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 24px;
+  background:
+    linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px),
+    #0b0d12;
+  background-size: 32px 32px;
+  box-shadow: 0 34px 100px rgba(0,0,0,.56);
+}
+
+.download-head {
+  min-height: 64px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.download-head-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  color: #ff545e;
+  background: rgba(255,52,64,.10);
+  border: 1px solid rgba(255,72,82,.28);
+}
+
+.download-head-icon svg { width: 18px; height: 18px; }
+
+.download-head strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: .98rem;
+}
+
+.download-modal-close {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: #9da8b7;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.download-modal-close:hover {
+  color: #fff;
+  background: rgba(255,255,255,.08);
+}
+
+.download-content { padding: 16px; }
+
+.download-file-card {
+  min-height: 76px;
+  border: 1px solid rgba(255,80,90,.22);
+  border-top-color: rgba(255,80,90,.58);
+  border-radius: 16px;
+  padding: 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,.025);
+}
+
+.download-file-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  color: #ff5b64;
+  background: rgba(255,57,69,.10);
+  border: 1px solid rgba(255,70,81,.24);
+}
+
+.download-file-icon svg { width: 21px; height: 21px; }
+
+.download-file-copy { min-width: 0; }
+
+.download-file-copy strong {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font: 700 .88rem/1.25 "Space Grotesk", sans-serif;
+}
+
+.download-file-copy span {
+  display: block;
+  margin-top: 5px;
+  color: #7f8a9b;
+  font-size: .66rem;
+  font-weight: 650;
+}
+
+.download-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.download-choice {
+  min-height: 138px;
+  border: 0;
+  border-radius: 18px;
+  padding: 17px 12px;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font: inherit;
+  transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+}
+
+.download-choice:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+.download-choice-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.16);
+  border: 1px solid rgba(255,255,255,.16);
+}
+
+.download-choice-icon svg { width: 20px; height: 20px; }
+
+.download-choice strong {
+  font: 800 1rem/1 "Space Grotesk", sans-serif;
+}
+
+.download-choice small {
+  font-size: .66rem;
+  font-weight: 700;
+  opacity: .92;
+}
+
+.download-choice.bypass {
+  background: linear-gradient(145deg, #ed232a, #c91920);
+  box-shadow: 0 13px 32px rgba(224,31,39,.18);
+}
+
+.download-choice.purchase {
+  background: linear-gradient(145deg, #10bd92, #079d77);
+  box-shadow: 0 13px 32px rgba(10,179,136,.18);
+}
+
+.download-error {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 14px;
+  padding: 0 13px;
+  border: 1px solid rgba(255,60,72,.38);
+  border-radius: 13px;
+  background: rgba(255,40,52,.055);
+  color: #ff5963;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-align: left;
+  cursor: pointer;
+  font-size: .69rem;
+  font-weight: 800;
+}
+
+.download-error svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.download-note {
+  margin-top: 12px;
+  padding: 12px 13px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: rgba(255,255,255,.025);
+  color: #9ba6b5;
+  font-size: .68rem;
+  line-height: 1.55;
+}
+
+.download-note + .download-note { margin-top: 8px; }
+
+.download-note strong { color: #f2f5f8; }
+
+.download-key-note {
+  border-color: rgba(108,240,194,.14);
+  background: rgba(108,240,194,.045);
+}
+
+.download-key-note strong { color: var(--accent); }
+
+.download-modal-message {
+  display: none;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 11px;
+  border: 1px solid rgba(122,168,255,.16);
+  background: rgba(122,168,255,.06);
+  color: #a9c5ff;
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
+.download-modal-message.show { display: block; }
+
+.download-foot {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.download-close-btn {
+  min-width: 72px;
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: 11px;
+  background: rgba(255,255,255,.045);
+  color: #e4e9ef;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .download-modal { padding: 10px; }
+  .download-dialog { border-radius: 20px; }
+  .download-content { padding: 13px; }
+  .download-choices { gap: 9px; }
+  .download-choice { min-height: 126px; border-radius: 16px; }
+  .download-choice strong { font-size: .9rem; }
+}
+
+.channel-banner { margin-top: 70px; margin-bottom: 72px; padding: 26px 28px; border: 1px solid rgba(108,240,194,.15); border-radius: var(--radius-xl); background: linear-gradient(115deg, rgba(108,240,194,.075), rgba(122,168,255,.035) 55%, rgba(178,137,255,.055)); display: flex; align-items: center; justify-content: space-between; gap: 26px; position: relative; overflow: hidden; }
+.channel-banner::after { content: "NS"; position: absolute; right: 130px; bottom: -48px; font: 700 9rem/1 "Space Grotesk"; color: rgba(255,255,255,.018); letter-spacing: -.08em; pointer-events: none; }
+.channel-copy { display: flex; align-items: center; gap: 16px; position: relative; z-index: 1; }
+.telegram-icon { width: 54px; height: 54px; border-radius: 17px; flex-shrink: 0; display: grid; place-items: center; color: var(--accent); background: rgba(108,240,194,.08); border: 1px solid rgba(108,240,194,.14); }
+.telegram-icon svg { font-size: 1.25rem; }
+.channel-banner .primary-btn { position: relative; z-index: 1; flex-shrink: 0; }
+
+.site-footer { border-top: 1px solid var(--line); background: #080b0f; }
+.footer-inner { min-height: 92px; display: flex; align-items: center; gap: 20px; }
+.footer-brand { display: flex; align-items: center; gap: 9px; font-family: "Space Grotesk"; }
+.footer-inner p { color: #6e7988; font-size: .7rem; margin: 0 auto; }
+.footer-inner > a { color: #8c98a8; font-size: .7rem; font-weight: 650; }
+
+.drawer-backdrop { position: fixed; inset: 0; z-index: 70; background: rgba(0,0,0,.56); backdrop-filter: blur(5px); }
+.notification-drawer { position: fixed; z-index: 80; top: 0; right: 0; width: min(410px, 92vw); height: 100dvh; padding: 22px; background: #0b1016; border-left: 1px solid var(--line); box-shadow: -30px 0 80px rgba(0,0,0,.38); transform: translateX(104%); transition: transform .28s ease; }
+.notification-drawer.open { transform: translateX(0); }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.drawer-head h2 { margin: 4px 0 0; font: 700 1.45rem/1.1 "Space Grotesk"; }
+.notification-item { display: flex; gap: 12px; padding: 16px; margin-top: 16px; border-radius: 16px; background: rgba(255,255,255,.028); border: 1px solid var(--line); }
+.notification-icon { width: 34px; height: 34px; border-radius: 11px; flex-shrink: 0; display: grid; place-items: center; color: #07120e; background: var(--accent); font-weight: 900; }
+.notification-item strong { display: block; font-size: .8rem; }
+.notification-item p { color: var(--muted); font-size: .72rem; line-height: 1.5; margin: 6px 0; }
+.notification-item time { color: #606b79; font-size: .64rem; }
+
+.preview-modal { position: fixed; inset: 0; z-index: 100; padding: 24px; display: none; place-items: center; background: rgba(4,6,9,.88); backdrop-filter: blur(18px); }
+.preview-modal.open { display: grid; }
+.preview-close { position: fixed; top: 20px; right: 20px; width: 44px; height: 44px; border-radius: 14px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.05); color: #fff; cursor: pointer; }
+.preview-shell { width: min(980px, 95vw); text-align: center; }
+.preview-label { color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .14em; }
+.preview-shell h2 { margin: 8px 0 18px; font: 700 clamp(1.2rem, 3vw, 2rem)/1.1 "Space Grotesk"; }
+.preview-shell img { width: 100%; max-height: 76vh; object-fit: contain; border-radius: 20px; border: 1px solid var(--line); background: #0a0e13; box-shadow: 0 30px 90px rgba(0,0,0,.5); }
+
+@media (max-width: 930px) {
+  .top-nav { display: none; }
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 64px; }
+  .hero-copy { max-width: 760px; }
+  .hero-panel { max-width: 620px; }
+  .section-head { align-items: flex-start; flex-direction: column; }
+  .section-tools { width: 100%; justify-items: stretch; }
+  .search-box { width: 100%; max-width: none; }
+}
+
+@media (max-width: 720px) {
+  .shell { width: min(100% - 24px, 1180px); }
+  .header-inner { min-height: 66px; gap: 12px; }
+  .brand-copy small { display: none; }
+  .header-cta { display: none; }
+  .hero { padding-top: 48px; }
+  .hero h1 { font-size: clamp(2.4rem, 12vw, 3.8rem); }
+  .hero-lead { font-size: .9rem; }
+  .app-grid { grid-template-columns: 1fr; }
+  .apps-section { padding-top: 54px; }
+  .channel-banner { align-items: flex-start; flex-direction: column; padding: 22px; margin-top: 52px; margin-bottom: 54px; }
+  .channel-banner .primary-btn { width: 100%; }
+  .footer-inner { min-height: 120px; flex-wrap: wrap; justify-content: space-between; padding-block: 20px; }
+  .footer-inner p { order: 3; width: 100%; margin: 0; }
+}
+
+@media (max-width: 480px) {
+  .hero-actions { display: grid; }
+  .hero-actions > * { width: 100%; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .stat-card { min-height: 82px; padding: 13px; }
+  .app-body { padding: 14px; }
+  .app-title-row h3 { font-size: .84rem; }
+  .filters { width: 100%; }
+  .filter-btn { flex: 1; }
+  .channel-copy { align-items: flex-start; }
+  .telegram-icon { width: 46px; height: 46px; border-radius: 14px; }
+  .preview-modal { padding: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+
+/* GET KEY INFO TYPOGRAPHY */
+.download-file-copy #downloadAppName {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: .92rem;
+  font-weight: 800;
+  letter-spacing: .015em;
+  color: #f6f9fc;
+  line-height: 1.25;
+  text-shadow: 0 0 18px rgba(255,255,255,.04);
+}
+
+.download-file-copy #downloadAppMeta {
+  margin-top: 6px;
+  font-size: .66rem;
+  font-weight: 800;
+  letter-spacing: .045em;
+  color: var(--accent);
+  line-height: 1.35;
+  text-transform: uppercase;
+  white-space: normal;
+  text-shadow: 0 0 14px rgba(108,240,194,.18);
+}
+
+.download-file-card {
+  align-items: center;
+}
+
+.download-file-icon {
+  color: var(--accent);
+  background: rgba(108,240,194,.08);
+  border-color: rgba(108,240,194,.22);
+}
+
+</style>
+</head>
+<body>
+<div aria-hidden="true" class="noise"></div>
+<div aria-hidden="true" class="ambient ambient-one"></div>
+<div aria-hidden="true" class="ambient ambient-two"></div>
+<header class="site-header">
+<div class="shell header-inner">
+<a aria-label="NSMOD Home" class="brand" href="#top">
+<span class="brand-mark">NS</span>
+<span class="brand-copy">
+<strong>NSMOD</strong>
+<small>iOS &amp; App Hub</small>
+</span>
+</a>
+<nav aria-label="Điều hướng chính" class="top-nav">
+<a href="#apps">Ứng dụng</a>
+<a href="#about">Giới thiệu</a>
+<a href="https://t.me/sonchoigame23" rel="noopener noreferrer" target="_blank">Telegram</a>
+</nav>
+<div class="header-actions">
+<button aria-expanded="false" aria-label="Mở thông báo" class="icon-btn" id="notificationBtn" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+<span class="status-dot"></span>
+</button>
+<a class="primary-btn header-cta" href="https://t.me/sonchoigame23" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
+          Kênh NSMOD
+        </a>
+</div>
+</div>
+</header>
+<main id="top">
+<section class="hero shell">
+<div class="hero-copy">
+<div class="eyebrow"><span></span> NSMOD / DIGITAL HUB</div>
+<h1>Một giao diện <em>tối, gọn, rõ</em> cho kho ứng dụng của NSMOD.</h1>
+<p class="hero-lead">Tập trung vào nội dung cần thiết: phiên bản mới, nền tảng hỗ trợ, tải xuống và lấy key — không còn giao diện sáng hay chi tiết thừa.</p>
+<div class="hero-actions">
+<a class="primary-btn" href="#apps">
+            Xem ứng dụng
+            <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="ghost-btn" href="https://t.me/sonchoigame23" rel="noopener noreferrer" target="_blank">Telegram @sonchoigame23</a>
+</div>
+<div class="trust-row">
+<span><i></i> Dark mode only</span>
+<span><i></i> Responsive</span>
+<span><i></i> Clean UI</span>
+</div>
+</div>
+<aside class="hero-panel" id="about">
+<div class="panel-glow"></div>
+<div class="profile-line">
+<img alt="Avatar NSMOD" class="avatar" src="ICON/avt.jpg"/>
+<div>
+<span class="muted">Owner / Developer</span>
+<h2>NSMOD <span class="verified">✓</span></h2>
+</div>
+<span class="online-pill"><i></i> Online</span>
+</div>
+<div class="stat-grid">
+<div class="stat-card">
+<span>Ứng dụng</span>
+<strong id="appCount">07</strong>
+</div>
+<div class="stat-card">
+<span>Giao diện</span>
+<strong>Dark</strong>
+</div>
+<div class="stat-card">
+<span>Nền tảng</span>
+<strong>iOS / Android</strong>
+</div>
+<div class="stat-card">
+<span>Trạng thái</span>
+<strong class="accent-text">Active</strong>
+</div>
+</div>
+<div class="panel-note">
+<span class="panel-note-icon">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg>
+</span>
+<div>
+<strong>NSMOD Release Center</strong>
+<p>Kiểm tra đúng tên và ngày cập nhật trước khi tải.</p>
+</div>
+</div>
+</aside>
+</section>
+<section class="apps-section shell" id="apps">
+<div class="section-head">
+<div>
+<span class="section-kicker">LIBRARY</span>
+<h2>1 KEY DÙNG ALL BẢN  </h2>
+<p>CHỈ CẦN LẤY KEY 1 LẦN/NGÀY LÀ DÙNG ĐƯỢC HẾT CÁC FILE NHÉ .</p>
+</div>
+<div class="section-tools">
+<label aria-label="Tìm ứng dụng" class="search-box">
+<svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+<input autocomplete="off" id="appSearch" placeholder="Tìm ứng dụng..." type="search"/>
+</label>
+<div aria-label="Lọc ứng dụng" class="filters" role="group">
+<button class="filter-btn active" data-filter="all" type="button">Tất cả</button>
+<button class="filter-btn" data-filter="aov" type="button">AOV</button>
+<button class="filter-btn" data-filter="other" type="button">Khác</button>
+</div>
+</div>
+</div>
+<div class="app-grid" id="appGrid">
+<article class="app-card" data-category="aov" data-name="MENU MOD FULL SKIN KHÔNG TRẬN ẢO">
+<button aria-label="Xem ảnh MENU AOV MAPMENU MOD FULL SKIN KHÔNG TRẬN ẢO" class="app-media" data-preview="ẢNH BÌA/6aa782da-02c3-46f3-a108-8ae8911b0347.jpg" data-title="MENU MOD FULL SKIN KHÔNG TRẬN ẢO " type="button">
+<img alt="MENU MOD FULL SKIN KHÔNG TRẬN ẢO" loading="eager" src="ẢNH BÌA/6aa782da-02c3-46f3-a108-8ae8911b0347.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="https://vthangios.xyz/uploads/apps/1785224151_22760a5eab01424b.jpeg"/>
+<div><h3>MENU MOD FULL SKIN KHÔNG TRẬN ẢO</h3><p>Cập nhật ngày 29/10</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://tasksub.io/m8K" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
+</div>
+</div>
+</article>
+<article class="app-card" data-category="aov" data-name="TFT ĐẤU TRƯỜNG CL ">
+<button aria-label="Xem ảnh TFT ĐẤU TRƯỜNG CL" class="app-media" data-preview="ẢNH BÌA/ecc70f74-e11e-457b-ab6b-66db2d637ee6.jpg" data-title="TFT ĐẤU TRƯỜNG CL" type="button">
+<img alt="MENU AOV MOD V2" loading="lazy" src="ẢNH BÌA/ecc70f74-e11e-457b-ab6b-66db2d637ee6.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/images.jpg"/>
+<div><h3>TFT ĐẤU TRƯỜNG CL </h3><p>Cập nhật ngày 29/10</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://tasksub.io/Kooie6" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
+</div>
+</div>
+</article>
+<div class="empty-state" hidden="" id="emptyState">
+<strong>Không tìm thấy ứng dụng</strong>
+<span>Thử từ khóa hoặc bộ lọc khác.</span>
+</div>
+</div>
+<div class="empty-state" hidden="" id="emptyState">
+<strong>Không tìm thấy ứng dụng</strong>
+<span>Thử từ khóa hoặc bộ lọc khác.</span>
+</div>
+</section>
+<section class="channel-banner shell">
+<div class="channel-copy">
+<span class="telegram-icon">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
+</span>
+<div>
+<span class="section-kicker">OFFICIAL CHANNEL</span>
+<h2>Theo dõi NSMOD trên Telegram</h2>
+<p>Nhận thông báo cập nhật, link mới và hướng dẫn sử dụng.</p>
+</div>
+</div>
+<a class="primary-btn" href="https://t.me/sonchoigame23" rel="noopener noreferrer" target="_blank">Mở Telegram <span>↗</span></a>
+</section>
+</main>
+<footer class="site-footer">
+<div class="shell footer-inner">
+<div class="footer-brand"><span class="brand-mark small">NS</span><strong>NSMOD</strong></div>
+<p>© 2026 NSMOD. Dark interface only.</p>
+<a href="#top">Lên đầu trang ↑</a>
+</div>
+</footer>
+<div class="drawer-backdrop" hidden="" id="drawerBackdrop"></div>
+<aside aria-hidden="true" aria-labelledby="notificationTitle" class="notification-drawer" id="notificationDrawer">
+<div class="drawer-head">
+<div><span class="section-kicker">NSMOD</span><h2 id="notificationTitle">Thông báo</h2></div>
+<button aria-label="Đóng thông báo" class="icon-btn" id="notificationClose" type="button">✕</button>
+</div>
+<div class="notification-item">
+<span class="notification-icon">✓</span>
+<div><strong>Giao diện NSMOD đã sẵn sàng</strong><p>Phiên bản dark-only với bố cục mới, tối ưu cho mobile.</p><time>Hôm nay</time></div>
+</div>
+</aside>
+
+<!-- ===== NSMOD DOWNLOAD MODAL ===== -->
+<div class="download-modal" id="downloadModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle">
+  <div class="download-dialog">
+    <div class="download-head">
+      <span class="download-head-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+      </span>
+      <strong id="downloadModalTitle">Lấy Key</strong>
+      <button class="download-modal-close" id="downloadModalX" type="button" aria-label="Đóng">✕</button>
+    </div>
+
+    <div class="download-content">
+      <div class="download-file-card">
+        <span class="download-file-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h6l2 2h10v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path><path d="M3 7V5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v2"></path></svg>
+        </span>
+        <div class="download-file-copy">
+          <strong id="downloadAppName">1 KEY DÙNG ALL BẢN</strong>
+          <span id="downloadAppMeta">NÊN CHỈ CẦN LẤY KEY 1 LẦN / NGÀY</span>
+        </div>
+      </div>
+
+      <div class="download-choices">
+        <button class="download-choice bypass" id="downloadBypassBtn" type="button">
+          <span class="download-choice-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 7 5-7 5Z"></path><path d="m14 7 7 5-7 5Z"></path></svg>
+          </span>
+          <strong>VƯỢT LINK LẤY KEY</strong>
+          <small>Bấm vào đây để lấy key </small>
+        </button>
+
+        <button class="download-choice purchase" id="downloadPurchaseBtn" type="button">
+          <span class="download-choice-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h2l2 11h11l2-7H7"></path><circle cx="9" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg>
+          </span>
+          <strong>MUA KEY</strong>
+          <small>Liên hệ Admin • 70K / tháng cho ae nào lười vượt</small>
+        </button>
+      </div>
+
+      <button class="download-error" id="downloadErrorBtn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4"></path><path d="M12 17h.01"></path><path d="M10.3 3.6 2.7 17a2 2 0 0 0 1.7 3h15.2a2 2 0 0 0 1.7-3L13.7 3.6a2 2 0 0 0-3.4 0Z"></path></svg>
+        GẶP LỖI KHI VƯỢT LINK? BÁO NGAY
+      </button>
+
+      <div class="download-note download-key-note">
+        🔑 <strong>1 KEY CÓ THỂ DÙNG ALL BẢN</strong> nên chỉ cần lấy key nhập 1 lần thôi nhé.
+      </div>
+
+      <div class="download-note">
+        💬 <strong>MUA KEY THÁNG:</strong> Anh em liên hệ Admin mua key tháng giá <strong>70K / tháng</strong>.
+      </div>
+
+      <div class="download-modal-message" id="downloadModalMessage"></div>
+    </div>
+
+    <div class="download-foot">
+      <button class="download-close-btn" id="downloadModalClose" type="button">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="previewTitle" aria-modal="true" class="preview-modal" id="previewModal" role="dialog">
+<button aria-label="Đóng ảnh" class="preview-close" id="previewClose" type="button">✕</button>
+<div class="preview-shell">
+<div class="preview-label">PREVIEW</div>
+<h2 id="previewTitle"></h2>
+<img alt="" id="previewImage" src=""/>
+</div>
+</div>
+<script>
+(() => {
+  'use strict';
+
+  const body = document.body;
+  const notificationBtn = document.getElementById('notificationBtn');
+  const notificationClose = document.getElementById('notificationClose');
+  const notificationDrawer = document.getElementById('notificationDrawer');
+  const drawerBackdrop = document.getElementById('drawerBackdrop');
+
+  const previewModal = document.getElementById('previewModal');
+  const previewImage = document.getElementById('previewImage');
+  const previewTitle = document.getElementById('previewTitle');
+  const previewClose = document.getElementById('previewClose');
+
+  const downloadModal = document.getElementById('downloadModal');
+  const downloadModalX = document.getElementById('downloadModalX');
+  const downloadModalClose = document.getElementById('downloadModalClose');
+  const downloadBypassBtn = document.getElementById('downloadBypassBtn');
+  const downloadPurchaseBtn = document.getElementById('downloadPurchaseBtn');
+  const downloadErrorBtn = document.getElementById('downloadErrorBtn');
+  const downloadAppName = document.getElementById('downloadAppName');
+  const downloadAppMeta = document.getElementById('downloadAppMeta');
+  const downloadModalMessage = document.getElementById('downloadModalMessage');
+
+// ===== CẤU HÌNH LIÊN HỆ =====
+  // DÁN LINK ZALO CỦA MÀY VÀO ĐÂY.
+  // Ví dụ theo số điện thoại: https://zalo.me/0987654321
+  const _z = [
+    'aHR0cHM6Ly8=',
+    'emFsbw==',
+    'bWU=',
+    'MDMzNDY1NTM5MQ=='
+  ];
+
+  const ZALO_BUY_URL =
+    atob(_z[0]) +
+    atob(_z[1]) +
+    '.' +
+    atob(_z[2]) +
+    '/' +
+    atob(_z[3]);
+  // DÁN LINK BÁO LỖI CHUNG VÀO ĐÂY SAU NÀY.
+  // Ví dụ: Telegram / Zalo / form báo lỗi.
+  const ERROR_REPORT_URL = '';
+
+  let activeKeyUrl = '';
+  let activeErrorUrl = '';
+
+  const appSearch = document.getElementById('appSearch');
+  const filterButtons = [...document.querySelectorAll('.filter-btn')];
+  const appCards = [...document.querySelectorAll('.app-card')];
+  const emptyState = document.getElementById('emptyState');
+  const appCount = document.getElementById('appCount');
+
+  let activeFilter = 'all';
+
+  const setBodyLock = () => {
+    const drawerOpen = notificationDrawer?.classList.contains('open');
+    const previewOpen = previewModal?.classList.contains('open');
+    const downloadOpen = downloadModal?.classList.contains('open');
+    body.classList.toggle('modal-open', Boolean(drawerOpen || previewOpen || downloadOpen));
+  };
+
+  const openNotifications = () => {
+    if (!notificationDrawer || !drawerBackdrop) return;
+    drawerBackdrop.hidden = false;
+    requestAnimationFrame(() => notificationDrawer.classList.add('open'));
+    notificationDrawer.setAttribute('aria-hidden', 'false');
+    notificationBtn?.setAttribute('aria-expanded', 'true');
+    setBodyLock();
+  };
+
+  const closeNotifications = () => {
+    if (!notificationDrawer || !drawerBackdrop) return;
+    notificationDrawer.classList.remove('open');
+    notificationDrawer.setAttribute('aria-hidden', 'true');
+    notificationBtn?.setAttribute('aria-expanded', 'false');
+    window.setTimeout(() => {
+      if (!notificationDrawer.classList.contains('open')) drawerBackdrop.hidden = true;
+    }, 280);
+    setBodyLock();
+  };
+
+  notificationBtn?.addEventListener('click', openNotifications);
+  notificationClose?.addEventListener('click', closeNotifications);
+  drawerBackdrop?.addEventListener('click', closeNotifications);
+
+  document.querySelectorAll('[data-preview]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!previewModal || !previewImage || !previewTitle) return;
+      previewImage.src = button.dataset.preview || '';
+      previewImage.alt = button.dataset.title || 'Preview';
+      previewTitle.textContent = button.dataset.title || 'Preview';
+      previewModal.classList.add('open');
+      previewModal.setAttribute('aria-hidden', 'false');
+      setBodyLock();
+    });
+  });
+
+  const closePreview = () => {
+    if (!previewModal || !previewImage) return;
+    previewModal.classList.remove('open');
+    previewModal.setAttribute('aria-hidden', 'true');
+    previewImage.src = '';
+    setBodyLock();
+  };
+
+  previewClose?.addEventListener('click', closePreview);
+  previewModal?.addEventListener('click', (event) => {
+    if (event.target === previewModal) closePreview();
+  });
+
+  const showDownloadMessage = (message) => {
+    if (!downloadModalMessage) return;
+    downloadModalMessage.textContent = message;
+    downloadModalMessage.classList.add('show');
+  };
+
+  const clearDownloadMessage = () => {
+    if (!downloadModalMessage) return;
+    downloadModalMessage.textContent = '';
+    downloadModalMessage.classList.remove('show');
+  };
+
+  const openDownloadModal = (keyButton) => {
+    if (!downloadModal) return;
+
+    const card = keyButton.closest('.app-card');
+    const appName = card?.querySelector('h3')?.textContent?.trim() || 'NSMOD';
+    const appSub = card?.querySelector('.app-title-row p')?.textContent?.trim() || '';
+
+    activeKeyUrl = keyButton.getAttribute('href') || '';
+    activeErrorUrl = keyButton.dataset.errorUrl || ERROR_REPORT_URL;
+
+    if (downloadAppName) downloadAppName.textContent = '1 KEY DÙNG ALL BẢN';
+    if (downloadAppMeta) downloadAppMeta.textContent = 'NÊN CHỈ CẦN LẤY KEY 1 LẦN / NGÀY';
+
+    clearDownloadMessage();
+    downloadModal.classList.add('open');
+    downloadModal.setAttribute('aria-hidden', 'false');
+    setBodyLock();
+  };
+
+  const closeDownloadModal = () => {
+    if (!downloadModal) return;
+    downloadModal.classList.remove('open');
+    downloadModal.setAttribute('aria-hidden', 'true');
+    clearDownloadMessage();
+    setBodyLock();
+  };
+
+  document.querySelectorAll('.key-btn').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      openDownloadModal(button);
+    });
+  });
+
+  downloadBypassBtn?.addEventListener('click', () => {
+    if (!activeKeyUrl) {
+      showDownloadMessage('Chưa có link lấy key cho ứng dụng này.');
+      return;
+    }
+    window.open(activeKeyUrl, '_blank', 'noopener,noreferrer');
+  });
+
+  downloadPurchaseBtn?.addEventListener('click', () => {
+    // Lưu tên app để người mua dễ nói đúng file khi nhắn Zalo.
+    const appName = downloadAppName?.textContent?.trim() || 'NSMOD KEY';
+    try {
+      sessionStorage.setItem('nsmod_buy_app', appName);
+    } catch (_) {}
+
+    window.open(ZALO_BUY_URL, '_blank', 'noopener,noreferrer');
+  });
+
+  downloadErrorBtn?.addEventListener('click', () => {
+    if (!activeErrorUrl) {
+      showDownloadMessage('Chưa gắn link báo lỗi. Dán URL vào ERROR_REPORT_URL trong phần JavaScript là xong.');
+      return;
+    }
+    window.open(activeErrorUrl, '_blank', 'noopener,noreferrer');
+  });
+
+  downloadModalX?.addEventListener('click', closeDownloadModal);
+  downloadModalClose?.addEventListener('click', closeDownloadModal);
+  downloadModal?.addEventListener('click', (event) => {
+    if (event.target === downloadModal) closeDownloadModal();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeNotifications();
+      closePreview();
+      closeDownloadModal();
+    }
+  });
+
+  const normalize = (value) => (value || '')
+    .toLocaleLowerCase('vi')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+
+  const applyFilters = () => {
+    const query = normalize(appSearch?.value.trim());
+    let visible = 0;
+
+    appCards.forEach((card) => {
+      const name = normalize(card.dataset.name);
+      const category = card.dataset.category || 'other';
+      const matchesSearch = !query || name.includes(query);
+      const matchesCategory = activeFilter === 'all' || category === activeFilter;
+      const show = matchesSearch && matchesCategory;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+
+    if (emptyState) emptyState.hidden = visible !== 0;
+  };
+
+  appSearch?.addEventListener('input', applyFilters);
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      activeFilter = button.dataset.filter || 'all';
+      filterButtons.forEach((item) => item.classList.toggle('active', item === button));
+      applyFilters();
+    });
+  });
+
+  if (appCount) appCount.textContent = String(appCards.length).padStart(2, '0');
+  applyFilters();
+})();
+
+</script>
+</body>
+</html>
