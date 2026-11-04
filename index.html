@@ -556,6 +556,68 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   border-color: rgba(108,240,194,.22);
 }
 
+
+/* ===== NSMOD CATEGORY LIBRARY: IOS KEY / IOS NO KEY / ANDROID ===== */
+.ns-library-head { margin-bottom: 18px; }
+.ns-library-head h2 { line-height: 1.1; }
+.ns-highlight { color: var(--accent); }
+.ns-section-shortcuts { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin: 20px 0 25px; }
+.ns-shortcut { min-width: 0; display: flex; align-items: center; gap: 12px; padding: 15px; border-radius: 17px; border: 1px solid rgba(255,255,255,.09); background: linear-gradient(145deg,rgba(22,29,39,.95),rgba(13,18,25,.96)); box-shadow: 0 9px 26px rgba(0,0,0,.12); transition: transform .2s ease,border-color .2s ease,background .2s ease; }
+.ns-shortcut:hover { transform: translateY(-3px); border-color: rgba(108,240,194,.28); }
+.ns-shortcut-icon { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; color: var(--accent); background: rgba(108,240,194,.09); border: 1px solid rgba(108,240,194,.13); flex: 0 0 40px; }
+.ns-shortcut.is-nokey .ns-shortcut-icon { color: #a9baff; background: rgba(122,168,255,.09); border-color: rgba(122,168,255,.15); }
+.ns-shortcut.is-android .ns-shortcut-icon { color: #bafa99; background: rgba(168,236,115,.09); border-color: rgba(168,236,115,.16); }
+.ns-shortcut-icon svg { width: 19px; height: 19px; }
+.ns-shortcut > span:nth-child(2) { min-width:0; display: grid; gap:4px; font-size: .73rem; color: #aeb9c8; }
+.ns-shortcut strong { color: #f6f9fc; font-size: .87rem; font-weight: 800; }
+.ns-shortcut small { color: #8290a1; font-size: .64rem; font-weight: 600; line-height: 1.35; }
+.ns-shortcut-count { margin-left: auto; align-self: flex-start; color: var(--accent); background: rgba(108,240,194,.08); border-radius: 7px; padding: 4px 6px; font-size:.64rem; font-weight: 800; white-space: nowrap; }
+.ns-search-panel { border:1px solid rgba(255,255,255,.09); border-radius: 22px; background: linear-gradient(140deg,rgba(21,28,37,.91),rgba(11,15,21,.94)); padding: 20px 22px 14px; margin-bottom: 33px; }
+.ns-search-top { display:flex; align-items:center; justify-content: space-between; gap:16px; }
+.ns-search-kicker { display:block; color:var(--accent); font-size:.65rem; letter-spacing:.14em; font-weight:800; }
+.ns-search-top h3 { font: 700 1.28rem/1.2 "Space Grotesk",sans-serif; letter-spacing:-.03em; margin:5px 0 0; }
+.ns-search-field { width: min(420px,100%); flex: 0 1 420px; }
+.ns-suggestion-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.ns-suggestion { border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 9px 13px; background:rgba(255,255,255,.035); color:#aeb9c8; font-size:.72rem; font-weight:800; cursor:pointer; transition: background .2s,border-color .2s,color .2s,transform .2s; }
+.ns-suggestion:hover { color:#fff; border-color:rgba(108,240,194,.25); transform:translateY(-1px); }
+.ns-suggestion.active { background:rgba(108,240,194,.12); color:#a6ffe0; border-color:rgba(108,240,194,.35); }
+.ns-search-result { padding-top:13px; margin-top:14px; border-top:1px solid rgba(255,255,255,.065); color:#8190a0; font-size:.7rem; font-weight:600; }
+.ns-category-section { margin-top:34px; scroll-margin-top: 104px; }
+.ns-category-section + .ns-category-section { margin-top: 48px; }
+.ns-category-head { display:flex; align-items:center; gap:15px; margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid rgba(255,255,255,.07); }
+.ns-section-icon { width:54px; height:54px; flex:0 0 54px; display:grid; place-items:center; border-radius:17px; background:rgba(108,240,194,.09); border:1px solid rgba(108,240,194,.2); color:var(--accent); }
+.ns-section-icon svg { width:25px; height:25px; }
+.group-nokey .ns-section-icon { color:#a9baff; background:rgba(122,168,255,.095); border-color:rgba(122,168,255,.2); }
+.group-android .ns-section-icon { color:#bafa99; background:rgba(171,231,110,.09); border-color:rgba(171,231,110,.2); }
+.ns-category-heading { min-width:0; }
+.ns-category-eyebrow { color:var(--accent); font-size:.64rem; font-weight:800; letter-spacing:.11em; display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+.group-nokey .ns-category-eyebrow { color:#a9baff; }
+.group-android .ns-category-eyebrow { color:#bafa99; }
+.ns-count { font-size:.6rem; letter-spacing:.04em; border-radius:999px; padding:4px 8px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.035); color:#b8c2ce; }
+.ns-category-heading h3 { font: 700 clamp(1.25rem,2.4vw,1.7rem)/1.2 "Space Grotesk",sans-serif; letter-spacing:-.03em; margin:7px 0 5px; }
+.ns-category-heading p { margin:0; font-size:.73rem; line-height:1.6; color:#8796a8; }
+.ns-section-grid { gap:18px; }
+.key-status-tag { display:inline-flex; align-items:center; position:absolute; top:13px; left:13px; z-index:2; padding:6px 9px; border-radius:999px; font-size:.61rem; letter-spacing:.015em; font-weight:800; backdrop-filter: blur(9px); }
+.key-status-tag.has-key { background:rgba(8,35,25,.87); border:1px solid rgba(108,240,194,.4); color:#adf8dd; }
+.key-status-tag.no-key { background:rgba(15,23,42,.86); border:1px solid rgba(155,181,255,.35); color:#b2c8ff; }
+.ns-section-empty { padding:25px; border:1px dashed rgba(255,255,255,.12); border-radius:16px; color:#8593a6; text-align:center; font-size:.78rem; }
+.ns-global-empty { text-align:center; padding:30px 20px; border-radius:18px; border:1px dashed rgba(108,240,194,.2); background:rgba(108,240,194,.025); margin-bottom:30px; }
+.ns-global-empty strong,.ns-global-empty span { display:block; }
+.ns-global-empty strong { font:700 1rem "Space Grotesk",sans-serif; }
+.ns-global-empty span { font-size:.75rem; color:#91a2b3; margin-top:8px; }
+.ns-global-empty button { background:rgba(108,240,194,.12); color:#adffe0; border:1px solid rgba(108,240,194,.25); padding:9px 14px; border-radius:10px; margin-top:16px; font-size:.75rem; font-weight:800; cursor:pointer; }
+.android-demo-cover { height:auto; aspect-ratio:16/8.2; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:13px; background: radial-gradient(circle at 50% 40%,rgba(166,238,111,.14),transparent 50%),linear-gradient(155deg,#15221a,#0b1512 60%,#101b22); }
+.android-demo-symbol { width:65px; height:65px; border-radius:22px; display:grid; place-items:center; border:1px solid rgba(172,242,128,.22); background:rgba(172,242,128,.08); color:#c3f9a9; }
+.android-demo-symbol svg { width:32px; height:32px; }
+.android-demo-label { font-weight:800; color:#bafa99; font-size:.7rem; letter-spacing:.12em; }
+.android-demo-app-icon { width:48px; height:48px; flex:0 0 48px; border-radius:14px; display:grid; place-items:center; color:#bafa99; background:rgba(171,231,110,.08); border:1px solid rgba(171,231,110,.2); }
+.android-demo-app-icon svg { width:23px; height:23px; }
+.android-disabled, .android-disabled:hover { background:#29352c; color:#91a597; cursor:not-allowed; box-shadow:none; }
+/* Native [hidden] behavior needs priority over flex/grid display. */
+.ns-category-section[hidden], .ns-global-empty[hidden], .ns-section-empty[hidden], .android-demo-card[hidden] { display:none!important; }
+@media (max-width:920px) { .ns-shortcut { padding:12px; gap:9px; } .ns-shortcut-icon { flex-basis:36px; width:36px; height:36px; } .ns-shortcut-count { display:none; } }
+@media (max-width:720px) { .ns-section-shortcuts { grid-template-columns:1fr; gap:8px; margin:17px 0 20px; } .ns-shortcut { padding:12px 14px; } .ns-shortcut-count { display:block; } .ns-search-panel { padding:18px 15px 13px; border-radius:17px; } .ns-search-top { flex-direction:column; align-items:stretch; } .ns-search-field { flex:auto; width:100%; } .ns-suggestion-row { gap:6px; } .ns-suggestion { padding:8px 10px; font-size:.67rem; } .ns-category-section + .ns-category-section { margin-top:38px; } .ns-category-head { gap:11px; } .ns-section-icon { width:45px; height:45px; flex-basis:45px; border-radius:14px; } .ns-category-heading p { font-size:.68rem; } }
+
 </style>
 </head>
 <body>
@@ -647,181 +709,58 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 </aside>
 </section>
 <section class="apps-section shell" id="apps">
-<div class="section-head">
-<div>
-<span class="section-kicker">LIBRARY</span>
-<h2>1 KEY DÙNG ALL BẢN  </h2>
-<p>CHỈ CẦN LẤY KEY 1 LẦN/NGÀY LÀ DÙNG ĐƯỢC HẾT CÁC FILE NHÉ .</p>
-</div>
-<div class="section-tools">
-<label aria-label="Tìm ứng dụng" class="search-box">
-<svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-<input autocomplete="off" id="appSearch" placeholder="Tìm ứng dụng..." type="search"/>
-</label>
-<div aria-label="Lọc ứng dụng" class="filters" role="group">
-<button class="filter-btn active" data-filter="all" type="button">Tất cả</button>
-<button class="filter-btn" data-filter="aov" type="button">AOV</button>
-<button class="filter-btn" data-filter="TFT" type="button">TFT</button>
-</div>
-</div>
-</div>
-<div class="app-grid" id="appGrid">
+  <div class="section-head ns-library-head">
+    <div>
+      <span class="section-kicker">NSMOD / GAME LIBRARY</span>
+      <h2>Kho ứng dụng <span class="ns-highlight">theo nền tảng</span></h2>
+      <p>iOS có key, iOS no key và Android được chia riêng để dễ tìm đúng bản.</p>
+    </div>
+  </div>
 
+  <nav class="ns-section-shortcuts" aria-label="Chuyển nhanh theo nền tảng">
+    <a href="#ios-key" class="ns-shortcut is-key"><span class="ns-shortcut-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="m11 12 8-8M16 7l2 2M14 9l2 2"></path></svg></span><span>iOS <strong>CÓ KEY</strong><small>1 KEY DÙNG ALL BẢN</small></span><span class="ns-shortcut-count">05</span></a>
+    <a href="#ios-nokey" class="ns-shortcut is-nokey"><span class="ns-shortcut-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M9 10V7a4 4 0 0 1 7-2.6"></path></svg></span><span>iOS <strong>NO KEY</strong><small>Tải và dùng không cần key</small></span><span class="ns-shortcut-count">05</span></a>
+    <a href="#android" class="ns-shortcut is-android"><span class="ns-shortcut-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 7-2-3M18 7l2-3M4 13a8 8 0 0 1 16 0v6H4v-6ZM2 13v5M22 13v5M8 19v3M16 19v3"></path><path d="M8 10h.01M16 10h.01"></path></svg></span><span><strong>ANDROID</strong><small>Khu Android riêng</small></span><span class="ns-shortcut-count">MẪU</span></a>
+  </nav>
 
-  <article class="app-card" data-category="aov" data-name="SHARE MINIMAP ">
-<button aria-label="Xem ảnh MENU SHARE MINIMAP   " class="app-media" data-preview="ẢNH BÌA/1793724224440_614138617956959535_7045218798118481007_f85f15db3c7949f6444f7e432928d54c.jpg" data-title="ROSI VIP SHARE MINIMAP" type="button">
-<img alt="MARCO VIP " loading="eager" src="ẢNH BÌA/1793724224440_614138617956959535_7045218798118481007_f85f15db3c7949f6444f7e432928d54c.jpg"/>
-<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
-</button>
-<div class="app-body">
-<div class="app-title-row">
-<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
-<div><h3>CRACK ROSI SHARE MINIMAP </h3><p>Cập nhật ngày 3/11</p></div>
-</div>
-<div class="app-actions">
-<a class="download-btn" href="https://oklink2.online/LQROSISHAREMINIMAP" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
-</div>
-</div>
-</article>
+  <div class="ns-search-panel">
+    <div class="ns-search-top">
+      <div><span class="ns-search-kicker">TÌM NHANH</span><h3>Gợi ý tìm kiếm</h3></div>
+      <label aria-label="Tìm ứng dụng" class="search-box ns-search-field">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input autocomplete="off" id="appSearch" placeholder="Nhập tên game hoặc ứng dụng..." type="search"/>
+      </label>
+    </div>
+    <div class="ns-suggestion-row" aria-label="Chọn thể loại game" role="group">
+      <button class="ns-suggestion active" data-game-filter="all" type="button" aria-pressed="true">Tất cả</button>
+      <button class="ns-suggestion" data-game-filter="aov" type="button" aria-pressed="false">AOV</button>
+      <button class="ns-suggestion" data-game-filter="tft" type="button" aria-pressed="false">TFT</button>
+      <button class="ns-suggestion" data-game-filter="free-fire" type="button" aria-pressed="false">FREE FIRE</button>
+      <button class="ns-suggestion" data-game-filter="pubg" type="button" aria-pressed="false">PUBG</button>
+      <button class="ns-suggestion" data-game-filter="8bp" type="button" aria-pressed="false">8BP</button>
+      <button class="ns-suggestion" data-game-filter="play-tgt" type="button" aria-pressed="false">PLAY TGT</button>
+    </div>
+    <div class="ns-search-result" id="searchResultStatus" role="status" aria-live="polite">Hiển thị toàn bộ ứng dụng</div>
+  </div>
+  <div class="ns-global-empty" id="emptyState" hidden>
+    <strong>Chưa có ứng dụng phù hợp</strong>
+    <span>Thử gợi ý khác hoặc chọn “Tất cả” để xem lại.</span>
+    <button id="clearSearchBtn" type="button">Xem tất cả ứng dụng</button>
+  </div>
 
-
-  <article class="app-card" data-category="aov" data-name="HNMOD-PROV2 ">
-<button aria-label="Xem ảnh MENU HNMOD-PROV2   " class="app-media" data-preview="ẢNH BÌA/HNMOD20.jpg" data-title="HNMOD PRO 2.0" type="button">
-<img alt="MARCO VIP " loading="eager" src="ẢNH BÌA/HNMOD20.jpg"/>
-<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
-</button>
-<div class="app-body">
-<div class="app-title-row">
-<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
-<div><h3>CRACK MENU PRO HNMOD </h3><p>Cập nhật ngày 3/11</p></div>
-</div>
-<div class="app-actions">
-<a class="download-btn" href="https://oklink2.online/HNMODPRO" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
-</div>
-</div>
-</article>
-
-  <article class="app-card" data-category="aov" data-name="MENU MARCO VIP ">
-<button aria-label="Xem ảnh MENU MARCOVIP   " class="app-media" data-preview="ẢNH BÌA/36fe493d-04e4-4796-abe3-9671d1682a53.jpg" data-title="MARCO VIP" type="button">
-<img alt="MARCO VIP " loading="eager" src="ẢNH BÌA/36fe493d-04e4-4796-abe3-9671d1682a53.jpg"/>
-<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
-</button>
-<div class="app-body">
-<div class="app-title-row">
-<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
-<div><h3>CRACK MENU NO KEY TTS MARCO </h3><p>Cập nhật ngày 1/11</p></div>
-</div>
-<div class="app-actions">
-<a class="download-btn" href="https://oklink2.online/CRACKMENUTTS" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
-</div>
-</div>
-</article>
-
-  <article class="app-card" data-category="aov" data-name="PLAY TOGETHER ">
-<button aria-label="Xem ảnh PLAY TOGETHER   " class="app-media" data-preview="ẢNH BÌA/PLAYTOGETHER.jpg" data-title="PLAY TOGETHER " type="button">
-<img alt="PLAY TOGETHER " loading="eager" src="ẢNH BÌA/PLAYTOGETHER.jpg"/>
-<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
-</button>
-<div class="app-body">
-<div class="app-title-row">
-<img alt="" class="app-icon" loading="lazy" src="ICON/Appicon.png"/>
-<div><h3>PLAY TOGETHER MENU NEW </h3><p>Cập nhật ngày 31/10</p></div>
-</div>
-<div class="app-actions">
-<a class="download-btn" href="https://tasksub.io/X7BU" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
-<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
-</div>
-</div>
-</article>
-
-
-  <article class="app-card" data-category="aov" data-name=" MENU NO KEY VIP ">
-<button aria-label="Xem ảnh  MENU NO KEY VIP    " class="app-media" data-preview="ẢNH BÌA/VTHANG.jpg" data-title=" MENU NO KEY VIP " type="button">
-<img alt=" MENU NO KEY VIP " loading="eager" src="ẢNH BÌA/VTHANG.jpg"/>
-<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
-</button>
-<div class="app-body">
-<div class="app-title-row">
-<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
-<div><h3> MENU AUTO BIJIAN,ESP,...  </h3><p>Cập nhật ngày 30/10</p></div>
-</div>
-<div class="app-actions">
-<a class="download-btn" href="https://oklink2.online/AUTOBIJIAN" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
-</div>
-</div>
-</article>
-
-
-
-
-  <article class="app-card" data-category="aov" data-name="NO KEY CHECK TỐ ">
-<button aria-label="Xem ảnh NO KEY CHECK TỐ   " class="app-media" data-preview="ẢNH BÌA/CHECKTO.jpg" data-title="NO KEY CHECK TỐ " type="button">
-<img alt="NO KEY CHECK TỐ " loading="eager" src="ẢNH BÌA/CHECKTO.jpg"/>
-<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
-</button>
-<div class="app-body">
-<div class="app-title-row">
-<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
-<div><h3> MENU TỰ ĐỘNG CHECK TỐ NO KEY  </h3><p>Cập nhật ngày 30/10</p></div>
-</div>
-<div class="app-actions">
-<a class="download-btn" href="https://link3s.top/CRACKLQVIP29" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
-</div>
-</div>
-</article>
-
-
-  <article class="app-card" data-category="aov" data-name="BIG CHANG MENU ">
-<button aria-label="Xem ảnh BIG CHANG MENU  " class="app-media" data-preview="ẢNH BÌA/BIGCHANG.jpg" data-title="BIG CHANG MENU " type="button">
-<img alt="BIG CHANG MENU " loading="eager" src="ẢNH BÌA/BIGCHANG.jpg"/>
-<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
-</button>
-<div class="app-body">
-<div class="app-title-row">
-<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
-<div><h3>MENU BIG CHANG </h3><p>Cập nhật ngày 29/10</p></div>
-</div>
-<div class="app-actions">
-<a class="download-btn" href="https://oklink2.online/CRACKBIGCHANG" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
-<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
-</div>
-</div>
-</article>
-
-  <article class="app-card" data-category="aov" data-name="MIGUL PRO ">
-<button aria-label="Xem ảnh MIGUL PRO " class="app-media" data-preview="ẢNH BÌA/MIGULPRO.jpg" data-title="MIGUL PRO " type="button">
-<img alt="MENU MOD FULL SKIN KHÔNG TRẬN ẢO" loading="eager" src="ẢNH BÌA/MIGULPRO.jpg"/>
-<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
-</button>
-<div class="app-body">
-<div class="app-title-row">
-<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
-<div><h3>MENU MIGUL PRO </h3><p>Cập nhật ngày 29/10</p></div>
-</div>
-<div class="app-actions">
-<a class="download-btn" href="https://tasksub.io/kvo2wnm" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
-<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
-</div>
-</div>
-</article>
-
-<article class="app-card" data-category="aov" data-name="MENU MOD FULL SKIN KHÔNG TRẬN ẢO">
-<button aria-label="Xem ảnh MENU AOV MAPMENU MOD FULL SKIN KHÔNG TRẬN ẢO" class="app-media" data-preview="ẢNH BÌA/6aa782da-02c3-46f3-a108-8ae8911b0347.jpg" data-title="MENU MOD FULL SKIN KHÔNG TRẬN ẢO " type="button">
-<img alt="MENU MOD FULL SKIN KHÔNG TRẬN ẢO" loading="eager" src="ẢNH BÌA/6aa782da-02c3-46f3-a108-8ae8911b0347.jpg"/>
-<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
-</button>
-<div class="app-body">
-<div class="app-title-row">
-<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
-<div><h3>MENU MOD FULL SKIN KHÔNG TRẬN ẢO</h3><p>Cập nhật ngày 29/10</p></div>
-</div>
-<div class="app-actions">
-<a class="download-btn" href="https://tasksub.io/m8K" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
-<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
-</div>
-</div>
-</article>
-<article class="app-card" data-category="TFT" data-name="TFT ĐẤU TRƯỜNG CL ">
+<!-- ===== iOS • 1 KEY DÙNG ALL BẢN ===== -->
+<div class="ns-category-section group-key" id="ios-key" data-section="group-key">
+  <div class="ns-category-head">
+    <div class="ns-section-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="m11 12 8-8M16 7l2 2M14 9l2 2"></path></svg></div>
+    <div class="ns-category-heading">
+      <div class="ns-category-eyebrow">IOS / PREMIUM KEY <span class="ns-count" data-count-for="ios-key">05 ỨNG DỤNG</span></div>
+      <h3>iOS • 1 KEY DÙNG ALL BẢN</h3>
+      <p>Những bản có nút “Lấy key”. Lấy key 1 lần/ngày để sử dụng các bản thuộc hệ thống key chung.</p>
+    </div>
+  </div>
+  <div class="app-grid ns-section-grid">
+    </article><article class="app-card" data-platform="ios" data-access="key" data-game="tft" data-category="TFT" data-name="TFT ĐẤU TRƯỜNG CL ">
+<span class="key-status-tag has-key">1 KEY ALL BẢN</span>
 <button aria-label="Xem ảnh TFT ĐẤU TRƯỜNG CL" class="app-media" data-preview="ẢNH BÌA/ecc70f74-e11e-457b-ab6b-66db2d637ee6.jpg" data-title="TFT ĐẤU TRƯỜNG CL" type="button">
 <img alt="MENU AOV MOD V2" loading="lazy" src="ẢNH BÌA/ecc70f74-e11e-457b-ab6b-66db2d637ee6.jpg"/>
 <span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
@@ -837,14 +776,214 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 </div>
 </div>
 </article>
-<div class="empty-state" hidden="" id="emptyState">
-<strong>Không tìm thấy ứng dụng</strong>
-<span>Thử từ khóa hoặc bộ lọc khác.</span>
+<article class="app-card" data-platform="ios" data-access="key" data-game="play-tgt" data-category="aov" data-name="PLAY TOGETHER ">
+<span class="key-status-tag has-key">1 KEY ALL BẢN</span>
+<button aria-label="Xem ảnh PLAY TOGETHER   " class="app-media" data-preview="ẢNH BÌA/PLAYTOGETHER.jpg" data-title="PLAY TOGETHER " type="button">
+<img alt="PLAY TOGETHER " loading="eager" src="ẢNH BÌA/PLAYTOGETHER.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/Appicon.png"/>
+<div><h3>PLAY TOGETHER MENU NEW </h3><p>Cập nhật ngày 31/10</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://tasksub.io/X7BU" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
 </div>
 </div>
-<div class="empty-state" hidden="" id="emptyState">
-<strong>Không tìm thấy ứng dụng</strong>
-<span>Thử từ khóa hoặc bộ lọc khác.</span>
+</article><article class="app-card" data-platform="ios" data-access="key" data-game="aov" data-category="aov" data-name="BIG CHANG MENU ">
+<span class="key-status-tag has-key">1 KEY ALL BẢN</span>
+<button aria-label="Xem ảnh BIG CHANG MENU  " class="app-media" data-preview="ẢNH BÌA/BIGCHANG.jpg" data-title="BIG CHANG MENU " type="button">
+<img alt="BIG CHANG MENU " loading="eager" src="ẢNH BÌA/BIGCHANG.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
+<div><h3>MENU BIG CHANG </h3><p>Cập nhật ngày 29/10</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://oklink2.online/CRACKBIGCHANG" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
+</div>
+</div>
+</article><article class="app-card" data-platform="ios" data-access="key" data-game="aov" data-category="aov" data-name="MIGUL PRO ">
+<span class="key-status-tag has-key">1 KEY ALL BẢN</span>
+<button aria-label="Xem ảnh MIGUL PRO " class="app-media" data-preview="ẢNH BÌA/MIGULPRO.jpg" data-title="MIGUL PRO " type="button">
+<img alt="MENU MOD FULL SKIN KHÔNG TRẬN ẢO" loading="eager" src="ẢNH BÌA/MIGULPRO.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
+<div><h3>MENU MIGUL PRO </h3><p>Cập nhật ngày 29/10</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://tasksub.io/kvo2wnm" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
+</div>
+</div>
+</article><article class="app-card" data-platform="ios" data-access="key" data-game="aov" data-category="aov" data-name="MENU MOD FULL SKIN KHÔNG TRẬN ẢO">
+<span class="key-status-tag has-key">1 KEY ALL BẢN</span>
+<button aria-label="Xem ảnh MENU AOV MAPMENU MOD FULL SKIN KHÔNG TRẬN ẢO" class="app-media" data-preview="ẢNH BÌA/6aa782da-02c3-46f3-a108-8ae8911b0347.jpg" data-title="MENU MOD FULL SKIN KHÔNG TRẬN ẢO " type="button">
+<img alt="MENU MOD FULL SKIN KHÔNG TRẬN ẢO" loading="eager" src="ẢNH BÌA/6aa782da-02c3-46f3-a108-8ae8911b0347.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
+<div><h3>MENU MOD FULL SKIN KHÔNG TRẬN ẢO</h3><p>Cập nhật ngày 29/10</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://tasksub.io/m8K" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+<a class="key-btn" href="https://authtool.app/get-key?code=039ff0e1-6e8b-4905-b4dd-55016a598945" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="M11 12l8-8"></path><path d="M16 7l2 2"></path><path d="M14 9l2 2"></path></svg> Lấy key</a>
+</div>
+</div>
+
+  </div>
+  <p class="ns-section-empty" hidden>Không có bản iOS có key phù hợp.</p>
+</div>
+<!-- ===== iOS • NO KEY ===== -->
+<div class="ns-category-section group-nokey" id="ios-nokey" data-section="group-nokey">
+  <div class="ns-category-head">
+    <div class="ns-section-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M9 10V7a4 4 0 0 1 7-2.6"></path></svg></div>
+    <div class="ns-category-heading">
+      <div class="ns-category-eyebrow">IOS / DIRECT ACCESS <span class="ns-count" data-count-for="ios-nokey">05 ỨNG DỤNG</span></div>
+      <h3>iOS • NO KEY</h3>
+      <p>Các bản không có nút “Lấy key”, sẽ không có key nhé</p>
+    </div>
+  </div>
+  <div class="app-grid ns-section-grid">
+
+    <article class="app-card" data-platform="ios" data-access="nokey" data-game="8BP" data-category="8BP" data-name="CRACK 8 BP FLUORITE ">
+<span class="key-status-tag no-key">NO KEY</span>
+<button aria-label="Xem ảnh CRACK 8BP FLU   " class="app-media" data-preview="ẢNH BÌA/1793794880068_614138617956959535_7045218798118481007_64577922a6710ced7337f1da9dcfdeb6.jpg" data-title="HNMOD PRO 2.0" type="button">
+<img alt="CRACK 8BP VIP " loading="eager" src="ẢNH BÌA/1793794880068_614138617956959535_7045218798118481007_64577922a6710ced7337f1da9dcfdeb6.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ẢNH BÌA/8-ball-pool-ios-200.webp"/>
+<div><h3>CRACK 8 BALL POOL FLU  </h3><p>Cập nhật ngày 4/11</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://tasksub.io/2BCz" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+</div>
+</div>
+</article>
+
+<article class="app-card" data-platform="ios" data-access="nokey" data-game="aov" data-category="aov" data-name="SHARE MINIMAP ">
+<span class="key-status-tag no-key">NO KEY</span>
+<button aria-label="Xem ảnh MENU SHARE MINIMAP   " class="app-media" data-preview="ẢNH BÌA/1793724224440_614138617956959535_7045218798118481007_f85f15db3c7949f6444f7e432928d54c.jpg" data-title="ROSI VIP SHARE MINIMAP" type="button">
+<img alt="MARCO VIP " loading="eager" src="ẢNH BÌA/1793724224440_614138617956959535_7045218798118481007_f85f15db3c7949f6444f7e432928d54c.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
+<div><h3>CRACK ROSI SHARE MINIMAP </h3><p>Cập nhật ngày 3/11</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://oklink2.online/LQROSISHAREMINIMAP" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+</div>
+</div>
+
+
+</article><article class="app-card" data-platform="ios" data-access="nokey" data-game="aov" data-category="aov" data-name="HNMOD-PROV2 ">
+<span class="key-status-tag no-key">NO KEY</span>
+<button aria-label="Xem ảnh MENU HNMOD-PROV2   " class="app-media" data-preview="ẢNH BÌA/HNMOD20.jpg" data-title="HNMOD PRO 2.0" type="button">
+<img alt="MARCO VIP " loading="eager" src="ẢNH BÌA/HNMOD20.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
+<div><h3>CRACK MENU PRO HNMOD </h3><p>Cập nhật ngày 3/11</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://oklink2.online/HNMODPRO" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+</div>
+</div>
+</article>
+<article class="app-card" data-platform="ios" data-access="nokey" data-game="aov" data-category="aov" data-name="MENU MARCO VIP ">
+<span class="key-status-tag no-key">NO KEY</span>
+<button aria-label="Xem ảnh MENU MARCOVIP   " class="app-media" data-preview="ẢNH BÌA/36fe493d-04e4-4796-abe3-9671d1682a53.jpg" data-title="MARCO VIP" type="button">
+<img alt="MARCO VIP " loading="eager" src="ẢNH BÌA/36fe493d-04e4-4796-abe3-9671d1682a53.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
+<div><h3>CRACK MENU NO KEY TTS MARCO </h3><p>Cập nhật ngày 1/11</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://oklink2.online/CRACKMENUTTS" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+</div>
+</div>
+</article><article class="app-card" data-platform="ios" data-access="nokey" data-game="aov" data-category="aov" data-name=" MENU NO KEY VIP ">
+<span class="key-status-tag no-key">NO KEY</span>
+<button aria-label="Xem ảnh  MENU NO KEY VIP    " class="app-media" data-preview="ẢNH BÌA/VTHANG.jpg" data-title=" MENU NO KEY VIP " type="button">
+<img alt=" MENU NO KEY VIP " loading="eager" src="ẢNH BÌA/VTHANG.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
+<div><h3> MENU AUTO BIJIAN,ESP,...  </h3><p>Cập nhật ngày 30/10</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://oklink2.online/AUTOBIJIAN" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+</div>
+</div>
+</article><article class="app-card" data-platform="ios" data-access="nokey" data-game="aov" data-category="aov" data-name="NO KEY CHECK TỐ ">
+<span class="key-status-tag no-key">NO KEY</span>
+<button aria-label="Xem ảnh NO KEY CHECK TỐ   " class="app-media" data-preview="ẢNH BÌA/CHECKTO.jpg" data-title="NO KEY CHECK TỐ " type="button">
+<img alt="NO KEY CHECK TỐ " loading="eager" src="ẢNH BÌA/CHECKTO.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/LQ.jpg"/>
+<div><h3> MENU TỰ ĐỘNG CHECK TỐ NO KEY  </h3><p>Cập nhật ngày 30/10</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://link3s.top/CRACKLQVIP29" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+</div>
+</div>
+</article>
+  </div>
+  <p class="ns-section-empty" hidden>Không có bản iOS no key phù hợp.</p>
+</div>
+<!-- ===== Android • Ứng dụng ===== -->
+<div class="ns-category-section group-android" id="android" data-section="group-android">
+  <div class="ns-category-head">
+    <div class="ns-section-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 7-2-3M18 7l2-3M4 13a8 8 0 0 1 16 0v6H4v-6ZM2 13v5M22 13v5M8 19v3M16 19v3"></path><path d="M8 10h.01M16 10h.01"></path></svg></div>
+    <div class="ns-category-heading">
+      <div class="ns-category-eyebrow">ANDROID / KHU RIÊNG <span class="ns-count" data-count-for="android">00 ỨNG DỤNG</span></div>
+      <h3>Android • Ứng dụng</h3>
+      <p>Đã tạo một card mẫu Android để mày thay ảnh, tên game và link tải sau này.</p>
+    </div>
+  </div>
+  <div class="app-grid ns-section-grid">
+
+<!-- CARD ANDROID MẪU: sao chép <article> này để thêm ứng dụng Android thực tế.
+     Đổi data-game="aov" thành tft, free-fire, pubg, 8bp hoặc play-tgt tùy game.
+     Khi có link thật: thay nút disabled bằng <a class="download-btn" href="LINK_TẢI">Tải xuống</a>.
+-->
+<article class="app-card android-demo-card" data-demo="true" data-platform="android" data-access="nokey" data-game="aov" data-category="aov" data-name="AOV Android mẫu thêm ứng dụng">
+  <div class="android-demo-cover"><span class="android-demo-symbol"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 7-2-3M18 7l2-3M4 13a8 8 0 0 1 16 0v6H4v-6ZM2 13v5M22 13v5M8 19v3M16 19v3"></path><path d="M8 10h.01M16 10h.01"></path></svg></span><span class="android-demo-label">ANDROID • MẪU</span></div>
+  <div class="app-body">
+    <div class="app-title-row">
+      <div class="android-demo-app-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 7-2-3M18 7l2-3M4 13a8 8 0 0 1 16 0v6H4v-6ZM2 13v5M22 13v5M8 19v3M16 19v3"></path><path d="M8 10h.01M16 10h.01"></path></svg></div>
+      <div><h3>AOV Android • Bản mẫu</h3><p>Chỗ trống để mày thêm bản Android mới</p></div>
+    </div>
+    <div class="app-actions one-action"><button class="download-btn android-disabled" type="button" disabled>Chưa có link tải</button></div>
+  </div>
+</article>
+
+  </div>
+  <p class="ns-section-empty" hidden>Chưa có bản Android phù hợp với tìm kiếm.</p>
 </div>
 </section>
 <section class="channel-banner shell">
@@ -1000,12 +1139,15 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   let activeErrorUrl = '';
 
   const appSearch = document.getElementById('appSearch');
-  const filterButtons = [...document.querySelectorAll('.filter-btn')];
+  const gameButtons = [...document.querySelectorAll('[data-game-filter]')];
   const appCards = [...document.querySelectorAll('.app-card')];
+  const realAppCards = appCards.filter(card => !card.dataset.demo);
+  const sections = [...document.querySelectorAll('.ns-category-section')];
   const emptyState = document.getElementById('emptyState');
   const appCount = document.getElementById('appCount');
+  const searchStatus = document.getElementById('searchResultStatus');
 
-  let activeFilter = 'all';
+  let activeGame = 'all';
 
   const setBodyLock = () => {
     const drawerOpen = notificationDrawer?.classList.contains('open');
@@ -1154,34 +1296,77 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '');
 
+  const syncGameButtons = () => {
+    gameButtons.forEach(button => {
+      const selected = (button.dataset.gameFilter || 'all') === activeGame;
+      button.classList.toggle('active', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+  };
+
   const applyFilters = () => {
     const query = normalize(appSearch?.value.trim());
     let visible = 0;
+    let demoVisible = 0;
 
-    appCards.forEach((card) => {
-      const name = normalize(card.dataset.name);
-      const category = card.dataset.category || 'other';
-      const matchesSearch = !query || name.includes(query);
-      const matchesCategory = activeFilter === 'all' || category === activeFilter;
-      const show = matchesSearch && matchesCategory;
+    appCards.forEach(card => {
+      const indexed = [card.dataset.name, card.dataset.game,
+        card.querySelector('h3')?.textContent, card.dataset.category]
+        .map(normalize).join(' ');
+      const gameMatches = activeGame === 'all' || card.dataset.game === activeGame;
+      const show = (!query || indexed.includes(query)) && gameMatches;
       card.hidden = !show;
-      if (show) visible += 1;
+      if (show && card.dataset.demo) demoVisible += 1;
+      if (show && !card.dataset.demo) visible += 1;
     });
 
-    if (emptyState) emptyState.hidden = visible !== 0;
+    // Giữ nguyên từng khu độc lập; chỉ ẩn khu trống khi có bộ lọc đang được áp dụng.
+    const isFiltering = Boolean(query) || activeGame !== 'all';
+    sections.forEach(section => {
+      const shown = section.querySelectorAll('.app-card:not([hidden])').length;
+      section.hidden = isFiltering && shown === 0;
+      const count = section.querySelector('.ns-count');
+      const isAndroid = section.id === 'android';
+      if (count) count.textContent = isAndroid ? (shown ? 'BẢN MẪU' : '0 BẢN') : `${String(shown).padStart(2, '0')} ỨNG DỤNG`;
+    });
+
+    if (emptyState) emptyState.hidden = visible + demoVisible !== 0;
+    if (searchStatus) {
+      searchStatus.textContent = isFiltering
+        ? `Tìm thấy ${visible} ứng dụng${demoVisible ? ' + 1 thẻ Android mẫu' : ''}`
+        : `Đang hiển thị ${realAppCards.length} ứng dụng iOS • 1 thẻ Android mẫu`;
+    }
   };
 
-  appSearch?.addEventListener('input', applyFilters);
-
-  filterButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      activeFilter = button.dataset.filter || 'all';
-      filterButtons.forEach((item) => item.classList.toggle('active', item === button));
-      applyFilters();
-    });
+  appSearch?.addEventListener('input', () => {
+    activeGame = 'all';
+    syncGameButtons();
+    applyFilters();
   });
 
-  if (appCount) appCount.textContent = String(appCards.length).padStart(2, '0');
+  gameButtons.forEach(button => button.addEventListener('click', () => {
+    activeGame = button.dataset.gameFilter || 'all';
+    // Gợi ý là lối tắt tìm kiếm; xóa query cũ để kết quả không bị chặn bởi từ khóa khác.
+    if (appSearch) appSearch.value = '';
+    syncGameButtons();
+    applyFilters();
+  }));
+
+  document.getElementById('clearSearchBtn')?.addEventListener('click', () => {
+    if (appSearch) appSearch.value = '';
+    activeGame = 'all';
+    syncGameButtons();
+    applyFilters();
+  });
+
+  document.querySelectorAll('.ns-shortcut').forEach(link => link.addEventListener('click', () => {
+    if (appSearch) appSearch.value = '';
+    activeGame = 'all';
+    syncGameButtons();
+    applyFilters();
+  }));
+
+  if (appCount) appCount.textContent = String(realAppCards.length).padStart(2, '0');
   applyFilters();
 })();
 
