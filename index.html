@@ -917,6 +917,177 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 #nsWelcomeSkip{background:rgba(255,255,255,.05);color:#e6e5f1}
 @media(max-width:820px){.ns-music-main{grid-template-columns:1fr}.ns-music-shell{padding:15px}}
 @media(max-width:480px){.ns-music-section{margin:14px auto 24px}.ns-music-btns button{flex:0 1 auto}.ns-music-sticker{display:none}}
+
+/* ===== NSMOD • 3 NỀN TẢNG × 4 NHÓM GAME, TỰ ĐỘNG XẾP THEO CẬP NHẬT ===== */
+.ns-category-section { position:relative; margin-top:40px; }
+.ns-category-section::before { content:""; position:absolute; inset:0 auto auto 0; width:68px; height:2px; background:var(--accent); border-radius:4px; opacity:.7; }
+.ns-category-section.group-nokey::before { background:#8aaeff; }
+.ns-category-section.group-android::before { background:#bafa99; }
+.ns-section-updated { display:inline-flex; align-items:center; margin-top:9px; padding:6px 10px; border:1px solid rgba(108,240,194,.19); border-radius:9px; background:rgba(108,240,194,.055); color:#adead6; font-size:.66rem; font-weight:750; letter-spacing:.01em; }
+.group-nokey .ns-section-updated { border-color:rgba(122,168,255,.22);background:rgba(122,168,255,.055);color:#adcbff; }
+.group-android .ns-section-updated { border-color:rgba(186,250,153,.19);background:rgba(186,250,153,.045);color:#bafa99; }
+.ns-game-groups { display:grid; gap:22px; }
+.ns-game-group { min-width:0; border:1px solid rgba(255,255,255,.082); border-radius:20px; padding:18px; background:linear-gradient(145deg,rgba(255,255,255,.028),rgba(255,255,255,.008)); box-shadow:0 11px 32px rgba(0,0,0,.075); scroll-margin-top:105px; }
+.ns-game-group[hidden] { display:none!important; }
+.ns-game-head { display:flex; align-items:center; gap:12px; padding-bottom:14px; margin-bottom:15px; border-bottom:1px solid rgba(255,255,255,.075); }
+.ns-game-emblem { width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.11);border-radius:12px;background:#131c29;color:#c9d8f1;font-size:1.18rem; }
+.ns-game-group[data-game-bucket="aov"] .ns-game-emblem {color:#8debd0;background:rgba(108,240,194,.075);border-color:rgba(108,240,194,.15)}
+.ns-game-group[data-game-bucket="pubg"] .ns-game-emblem {color:#f6cf8c;background:rgba(240,184,90,.075);border-color:rgba(240,184,90,.15)}
+.ns-game-group[data-game-bucket="free-fire"] .ns-game-emblem {color:#ffb09a;background:rgba(255,124,90,.07);border-color:rgba(255,124,90,.15)}
+.ns-game-info {min-width:0;flex:1}
+.ns-game-info h4 {font:800 clamp(.91rem,1.6vw,1.07rem)/1.3 'Space Grotesk',Inter,sans-serif;letter-spacing:-.018em;margin:0;color:#f2f7fc}
+.ns-game-info p {font-size:.68rem;line-height:1.45;color:#8b9eaf;margin:4px 0 0}
+.ns-game-count {flex:0 0 auto;display:inline-grid;place-items:center;min-width:35px;padding:6px 9px;border:1px solid rgba(255,255,255,.11);border-radius:999px;color:#b9c9d7;font-weight:800;font-size:.65rem}
+.ns-game-grid {gap:14px}
+.ns-game-empty {display:grid;place-items:center;gap:6px;min-height:96px;border:1px dashed rgba(255,255,255,.13);background:rgba(255,255,255,.015);border-radius:14px;text-align:center;padding:14px}
+.ns-game-empty[hidden] {display:none!important}
+.ns-game-empty strong {font:800 .81rem 'Space Grotesk',Inter,sans-serif;color:#aebed0;letter-spacing:.07em}
+.ns-game-empty span {font-size:.68rem;color:#8393a6}
+@media(max-width:720px) { .ns-game-groups{gap:14px}.ns-game-group{padding:12px;border-radius:16px}.ns-game-head{gap:9px}.ns-game-emblem{width:36px;height:36px;flex-basis:36px;border-radius:10px}.ns-game-count{padding:5px 7px;font-size:.61rem}.ns-game-info p{font-size:.63rem}.ns-category-section{margin-top:31px} }
+
+
+/* ===== NSMOD / KHÁM PHÁ GAME BẰNG ẢNH • XẾP THEO NGÀY/GIỜ ===== */
+.ns-game-picker{margin:19px 0 26px;padding:21px;border-radius:24px;border:1px solid rgba(108,240,194,.16);background:linear-gradient(135deg,rgba(15,24,33,.98),rgba(9,14,21,.98));box-shadow:0 20px 60px rgba(0,0,0,.17),inset 0 1px 0 rgba(255,255,255,.045)}
+.ns-game-picker-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:19px}
+.ns-game-picker-eyebrow{font-weight:850;font-size:.63rem;letter-spacing:.12em;color:#85e9ca}
+.ns-game-picker-top h3{font:750 clamp(1.35rem,2.8vw,1.9rem)/1.2 'Space Grotesk',sans-serif;letter-spacing:-.03em;color:#f3f7fb;margin:6px 0}
+.ns-game-picker-top p{margin:0;color:#96a5b7;font-size:.74rem;line-height:1.55}
+.ns-game-picker-total{white-space:nowrap;border:1px solid rgba(108,240,194,.2);border-radius:999px;padding:8px 11px;background:rgba(108,240,194,.06);color:#adebd9;font-size:.67rem;font-weight:800}
+.ns-game-picker-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.ns-game-tile{position:relative;isolation:isolate;display:flex;align-items:flex-end;overflow:hidden;min-height:197px;width:100%;padding:15px;text-align:left;border:1px solid rgba(255,255,255,.16);border-radius:19px;background:#17202b;cursor:pointer;color:#fff;box-shadow:0 12px 25px rgba(0,0,0,.16);transition:transform .22s,border-color .22s,box-shadow .22s}
+.ns-game-tile:hover{transform:translateY(-3px);border-color:rgba(108,240,194,.67);box-shadow:0 17px 36px rgba(0,0,0,.29)}
+.ns-game-tile:focus-visible{outline:3px solid #a5f2d9;outline-offset:3px}
+.ns-game-tile.is-active{border-color:#6cf0c2;box-shadow:0 0 0 2px rgba(108,240,194,.26),0 16px 35px rgba(0,0,0,.26)}
+.ns-game-tile[hidden]{display:none!important}
+.ns-game-tile-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(.98);transition:transform .4s}
+.ns-game-tile:hover .ns-game-tile-image{transform:scale(1.055)}
+.ns-game-tile:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(3,8,14,.12),rgba(3,8,14,.26) 30%,rgba(2,6,11,.97) 100%)}
+.ns-game-tile-top{position:absolute;left:12px;top:12px;right:12px;display:flex;justify-content:space-between;align-items:center;gap:7px}
+.ns-game-tile-pill{display:inline-flex;align-items:center;min-height:24px;padding:5px 9px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(7,12,20,.72);backdrop-filter:blur(9px);font-size:.64rem;font-weight:800;letter-spacing:.015em;color:#fff}
+.ns-game-tile-pill.is-new{border-color:rgba(108,240,194,.42);color:#c1ffe9;background:rgba(7,33,26,.79)}
+.ns-game-tile-info{width:100%;min-width:0;display:grid;gap:6px}
+.ns-game-tile-info strong{font:800 clamp(.95rem,1.6vw,1.15rem)/1.18 'Space Grotesk',sans-serif;letter-spacing:-.023em;text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.ns-game-tile-updated{font-size:.68rem;color:#d1deea;font-weight:650;line-height:1.35}
+.ns-game-tile-bottom{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:2px}
+.ns-game-tile-bottom small{color:#c8d5e3;font-size:.64rem;font-weight:750}
+.ns-game-tile-arrow{font-size:1.18rem;color:#8af1d1;line-height:1}
+.ns-game-picker-no-results[hidden],.ns-selected-game[hidden],.ns-section-shortcuts[hidden],.ns-platform-empty[hidden]{display:none!important}
+.ns-game-picker-no-results{padding:18px;border:1px dashed rgba(255,255,255,.2);color:#b3c4d5;border-radius:13px;text-align:center;font-size:.78rem}
+.ns-selected-game{margin:26px 0 13px;padding:17px 20px;border-radius:17px;border:1px solid rgba(108,240,194,.2);background:linear-gradient(105deg,rgba(108,240,194,.08),rgba(122,168,255,.04));display:flex;align-items:center;justify-content:space-between;gap:16px;scroll-margin-top:110px}
+.ns-selected-game-eyebrow{font-size:.6rem;letter-spacing:.12em;font-weight:800;color:#80dfbf;display:block;margin-bottom:5px}
+.ns-selected-game strong{font:800 1.05rem 'Space Grotesk',sans-serif;color:#f0f7fd;display:block}
+.ns-selected-game p{font-size:.7rem;color:#a0b0c1;margin:5px 0 0}
+.ns-selected-game button{padding:10px 13px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:11px;white-space:nowrap;color:#dce9f3;font-weight:750;cursor:pointer;font-size:.73rem}
+.ns-selected-game button:hover{background:rgba(108,240,194,.11);border-color:rgba(108,240,194,.3)}
+.ns-platform-empty{padding:21px;border:1px dashed rgba(255,255,255,.17);border-radius:15px;background:rgba(255,255,255,.024);text-align:center;color:#93a2b5;font-size:.76rem}
+.ns-platform-empty strong{display:block;color:#ccdae7;font-size:.83rem;letter-spacing:.09em;margin-bottom:6px}
+.ns-home-latest{margin:25px 0}
+.ns-section-shortcuts{margin-top:18px}
+@media(max-width:940px){.ns-game-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:590px){.ns-game-picker{padding:14px;border-radius:18px}.ns-game-picker-top{margin-bottom:13px}.ns-game-picker-total{font-size:.58rem;padding:7px 9px}.ns-game-picker-top h3{font-size:1.3rem}.ns-game-picker-grid{gap:9px}.ns-game-tile{min-height:160px;padding:11px;border-radius:15px}.ns-game-tile-top{left:9px;right:9px;top:9px}.ns-game-tile-pill{padding:4px 7px;font-size:.56rem;min-height:21px}.ns-game-tile-info strong{font-size:.89rem}.ns-game-tile-updated{font-size:.58rem}.ns-game-tile-bottom small{font-size:.59rem}.ns-selected-game{align-items:flex-start;padding:13px;gap:9px;flex-direction:column}.ns-selected-game button{width:100%;min-height:38px}}
+@media(max-width:350px){.ns-game-picker-grid{grid-template-columns:1fr}.ns-game-tile{min-height:176px}}
+
+
+/* ===== NSMOD / GIAO DIỆN TỐI GIẢN: MỚI NHẤT → CHỌN GAME ===== */
+#appsPage .apps-section {padding-top:32px}
+#apps {scroll-margin-top:88px}
+#appsPage .ns-library-head{margin-bottom:12px}
+#appsPage .ns-library-head h2{font-size:clamp(1.55rem,3vw,2.1rem)}
+#appsPage .ns-library-head p{max-width:720px;line-height:1.55}
+#appsPage .ns-home-latest{margin:0 0 19px}
+#appsPage .ns-latest-section{margin:0;padding:17px 19px;border-radius:19px}
+#appsPage .ns-latest-head{margin-bottom:12px}
+#appsPage .ns-latest-head h3{font-size:1.45rem;margin:6px 0 5px}
+#appsPage .ns-latest-head p{font-size:.72rem}
+#appsPage .ns-latest-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#appsPage .ns-game-picker{margin:12px 0 24px;padding:19px;border-radius:20px}
+#appsPage .ns-game-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#appsPage .ns-game-tile{min-height:187px;border-radius:15px}
+#appsPage .ns-game-tile-info{gap:6px}
+#appsPage .ns-game-tile-pill[hidden]{display:none!important}
+#appsPage .ns-game-tile-bottom{margin-top:0}
+#appsPage .ns-game-picker-top{margin-bottom:14px}
+#appsPage .ns-game-picker-top p{font-size:.71rem}
+#appsPage .ns-category-section{scroll-margin-top:110px}
+#appsPage .ns-search-disclosure{margin:0 0 12px;padding:0;border-radius:14px;overflow:hidden;background:linear-gradient(110deg,#111a24,#0d141d)}
+#appsPage .ns-search-disclosure summary{list-style:none;min-height:57px;padding:10px 15px;display:flex;gap:12px;align-items:center;cursor:pointer;outline-offset:-3px}
+#appsPage .ns-search-disclosure summary::-webkit-details-marker{display:none}
+#appsPage .ns-search-toggle-icon{width:37px;height:37px;flex:0 0 37px;display:grid;place-items:center;border-radius:10px;background:rgba(108,240,194,.1);color:#88e8cd}
+#appsPage .ns-search-toggle-icon svg{width:18px;height:18px}
+#appsPage .ns-search-toggle-copy{display:grid;gap:3px;min-width:0}
+#appsPage .ns-search-toggle-copy strong{font-size:.85rem;color:#e8f4f6}
+#appsPage .ns-search-toggle-copy small{font-size:.68rem;color:#90a2b5}
+#appsPage .ns-search-toggle-arrow{margin-left:auto;color:#a7b8c8;font-size:1.3rem;transition:transform .2s}
+#appsPage .ns-search-disclosure[open] .ns-search-toggle-arrow{transform:rotate(180deg)}
+#appsPage .ns-search-content{padding:0 15px 14px;border-top:1px solid rgba(255,255,255,.045)}
+#appsPage .ns-search-content .search-box{max-width:none;width:100%;margin-top:12px}
+#appsPage .ns-search-content .ns-search-result{margin-top:9px;padding-top:0;border:0}
+#appsPage .ns-selected-game{margin:18px 0 14px}
+#appsPage .ns-game-groups{gap:12px}
+@media(max-width:720px){
+  #appsPage .apps-section{padding-top:20px}
+  #appsPage .ns-home-latest{margin-bottom:13px}
+  #appsPage .ns-latest-section{padding:13px;border-radius:16px}
+  #appsPage .ns-latest-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  #appsPage .ns-latest-head h3{font-size:1.25rem}
+  #appsPage .ns-latest-head p{font-size:.68rem}
+  #appsPage .ns-latest-info{padding:9px 9px 5px}
+  #appsPage .ns-latest-info strong{font-size:.72rem;line-height:1.35}
+  #appsPage .ns-latest-date{font-size:.58rem}
+  #appsPage .ns-latest-type{font-size:.58rem}
+  #appsPage .ns-latest-actions{padding:0 7px 7px;gap:5px}
+  #appsPage .ns-latest-open,#appsPage .ns-latest-copy{min-height:32px;padding:0 7px;font-size:.62rem}
+  #appsPage .ns-latest-card{display:flex;flex-direction:column}
+  #appsPage .ns-latest-cover{aspect-ratio:16/9;height:auto}
+  #appsPage .ns-game-picker{padding:12px;border-radius:16px}
+  #appsPage .ns-game-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  #appsPage .ns-game-tile{min-height:155px;padding:10px;border-radius:13px}
+  #appsPage .ns-game-tile-info strong{font-size:.89rem}
+  #appsPage .ns-game-tile-updated{font-size:.57rem}
+  #appsPage .ns-game-tile-bottom small{font-size:.58rem}
+  #appsPage .ns-game-picker-top h3{font-size:1.15rem}
+  #appsPage .ns-game-picker-top p{font-size:.66rem}
+  #appsPage .ns-game-picker-total{font-size:.58rem}
+  #appsPage .ns-search-disclosure summary{min-height:54px}
+}
+@media(max-width:350px){
+  #appsPage .ns-game-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #appsPage .ns-game-tile{min-height:150px}
+  #appsPage .ns-game-tile-info strong{font-size:.78rem}
+  #appsPage .ns-game-tile-updated{font-size:.53rem}
+  #appsPage .ns-latest-open{font-size:.56rem}
+}
+
+
+
+/* ===== NSMOD / GAME PICKER DẠNG ICON GỌN ===== */
+.ns-game-picker{padding:18px 18px 20px}
+.ns-game-picker-top{margin-bottom:14px}
+.ns-game-picker-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ns-game-tile{min-height:0;display:grid;grid-template-columns:58px minmax(0,1fr);align-items:center;gap:12px;padding:12px 13px;border-radius:18px;background:linear-gradient(145deg,rgba(16,25,36,.98),rgba(10,15,23,.96));border:1px solid rgba(255,255,255,.12)}
+.ns-game-tile:hover{transform:translateY(-2px)}
+.ns-game-tile:before,.ns-game-tile-top,.ns-game-tile-arrow{display:none!important}
+.ns-game-tile-image{position:static;inset:auto;width:58px;height:58px;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:#0d1520;filter:none;transition:transform .25s, border-color .25s, box-shadow .25s;z-index:auto}
+.ns-game-tile:hover .ns-game-tile-image{transform:scale(1.04);border-color:rgba(108,240,194,.46);box-shadow:0 10px 26px rgba(0,0,0,.18)}
+.ns-game-tile-info{display:grid;gap:4px;align-content:center;text-align:left}
+.ns-game-tile-info strong{font:800 .98rem/1.22 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#f3f8fc}
+.ns-game-tile-updated{font-size:.66rem;color:#95a7ba}
+.ns-game-tile-bottom{display:flex;align-items:center;gap:7px;margin-top:2px}
+.ns-game-tile-bottom small{display:inline-flex;align-items:center;min-height:24px;padding:4px 8px;border-radius:999px;border:1px solid rgba(108,240,194,.18);background:rgba(108,240,194,.055);color:#b7efdd;font-size:.6rem;font-weight:800;letter-spacing:.04em}
+.ns-game-tile-fresh{display:inline-flex;align-items:center;min-height:24px;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#d5e1ec;font-size:.58rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+.ns-game-tile-fresh[hidden]{display:none!important}
+.ns-game-tile.is-active{border-color:#6cf0c2;box-shadow:0 0 0 2px rgba(108,240,194,.23),0 14px 28px rgba(0,0,0,.18)}
+#appsPage .ns-game-picker{padding:16px;border-radius:18px}
+#appsPage .ns-game-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#appsPage .ns-game-tile{min-height:0;padding:11px;border-radius:16px;grid-template-columns:54px minmax(0,1fr);gap:10px}
+#appsPage .ns-game-tile-image{width:54px;height:54px;border-radius:15px}
+#appsPage .ns-game-tile-info strong{font-size:.92rem}
+#appsPage .ns-game-tile-updated{font-size:.62rem}
+#appsPage .ns-game-tile-bottom small,#appsPage .ns-game-tile-fresh{font-size:.56rem}
+@media(max-width:860px){.ns-game-picker-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){#appsPage .ns-game-picker-grid,.ns-game-picker-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){#appsPage .ns-game-tile,.ns-game-tile{grid-template-columns:50px minmax(0,1fr);padding:10px 9px;gap:9px}#appsPage .ns-game-tile-image,.ns-game-tile-image{width:50px;height:50px;border-radius:14px}#appsPage .ns-game-tile-info strong,.ns-game-tile-info strong{font-size:.82rem}#appsPage .ns-game-tile-updated,.ns-game-tile-updated{font-size:.58rem}}
+
 </style>
 </head>
 <body>
@@ -1085,7 +1256,21 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 </section>
 </div>
 <div class="ns-page" data-view="apps" id="appsPage" hidden>
-<section class="ns-home-latest shell" aria-label="Ứng dụng cập nhật mới nhất">
+<section class="apps-section shell" id="apps">
+  <div class="section-head ns-library-head">
+    <div>
+      <span class="section-kicker">NSMOD / GAME LIBRARY</span>
+      <h2>TẢI GAME  <span class="ns-highlight">NGAY</span></h2>
+      <p>Xem bản mới trước, chọn game để xem phiên bản. Tất cả tự sắp xếp theo ngày và giờ cập nhật.</p>
+    </div>
+  </div>
+
+
+
+
+
+
+<section class="ns-home-latest" aria-label="Ứng dụng cập nhật mới nhất">
 <!-- ===== MỚI NHẤT: SỬA data-updated="YYYY-MM-DDTHH:mm" TRONG <article> ===== -->
   <section id="latest" class="ns-latest-section" aria-labelledby="latestTitle">
     <div class="ns-latest-head">
@@ -1100,52 +1285,49 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   </section>
 </section>
 
-<section class="apps-section shell" id="apps">
-  <div class="section-head ns-library-head">
-    <div>
-      <span class="section-kicker">NSMOD / GAME LIBRARY</span>
-      <h2>Chọn đúng mục <span class="ns-highlight">anh em cần</span></h2>
-      <p>Muốn tìm bản nào? Bấm vào iOS Có Key, iOS No Key hoặc Android bên dưới để nhảy thẳng đến mục đó — khỏi phải lướt tìm.</p>
-    </div>
-    <div class="ns-library-actions" role="group" aria-label="Chế độ xem ứng dụng">
-      <a class="ns-library-view-btn is-active" id="nsAllAppsBtn" href="#ios-key">▦ Tất cả ứng dụng ↓</a>
-      <a class="ns-library-view-btn" id="nsFavoritesBtn" href="#favorites">♥ Xem yêu thích <span id="favCount">0</span></a>
-    </div>
-  </div>
-
-  <nav class="ns-section-shortcuts" aria-label="Chuyển nhanh theo nền tảng">
-    <a href="#ios-key" class="ns-shortcut is-key"><span class="ns-shortcut-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"></circle><path d="m11 12 8-8M16 7l2 2M14 9l2 2"></path></svg></span><span>iOS <strong>CÓ KEY</strong><small>1 KEY DÙNG ALL BẢN</small></span><span class="ns-shortcut-count">05</span></a>
-    <a href="#ios-nokey" class="ns-shortcut is-nokey"><span class="ns-shortcut-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M9 10V7a4 4 0 0 1 7-2.6"></path></svg></span><span>iOS <strong>NO KEY</strong><small>Tải và dùng không cần key</small></span><span class="ns-shortcut-count">05</span></a>
-    <a href="#android" class="ns-shortcut is-android"><span class="ns-shortcut-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 7-2-3M18 7l2-3M4 13a8 8 0 0 1 16 0v6H4v-6ZM2 13v5M22 13v5M8 19v3M16 19v3"></path><path d="M8 10h.01M16 10h.01"></path></svg></span><span><strong>ANDROID</strong><small>Khu Android riêng</small></span><span class="ns-shortcut-count">MẪU</span></a>
-  </nav>
-
-
-
-  <div class="ns-search-panel">
-    <div class="ns-search-top">
-      <div><span class="ns-search-kicker">TÌM NHANH</span><h3>Gợi ý tìm kiếm</h3></div>
+  <details class="ns-search-panel ns-search-disclosure" id="nsSearchDisclosure">
+    <summary aria-controls="nsSearchContent">
+      <span class="ns-search-toggle-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg></span>
+      <span class="ns-search-toggle-copy"><strong>Tìm game nhanh</strong><small>Chạm để tìm theo tên game hoặc phiên bản</small></span>
+      <span class="ns-search-toggle-arrow" aria-hidden="true">⌄</span>
+    </summary>
+    <div class="ns-search-content" id="nsSearchContent">
       <label aria-label="Tìm ứng dụng" class="search-box ns-search-field">
         <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-        <input autocomplete="off" id="appSearch" placeholder="Nhập tên game hoặc ứng dụng..." type="search"/>
+        <input autocomplete="off" id="appSearch" placeholder="Ví dụ: AOV, Free Fire, FC Mobile..." type="search"/>
       </label>
+      <div class="ns-search-result" id="searchResultStatus" role="status" aria-live="polite">Nhập tên game để lọc các ô bên dưới.</div>
     </div>
-    <div class="ns-suggestion-row" aria-label="Chọn thể loại game" role="group">
-      <button class="ns-suggestion active" data-game-filter="all" type="button" aria-pressed="true">Tất cả</button>
-      <button class="ns-suggestion" data-game-filter="aov" type="button" aria-pressed="false">AOV</button>
-      <button class="ns-suggestion" data-game-filter="tft" type="button" aria-pressed="false">TFT</button>
-      <button class="ns-suggestion" data-game-filter="free-fire" type="button" aria-pressed="false">FREE FIRE</button>
-      <button class="ns-suggestion" data-game-filter="pubg" type="button" aria-pressed="false">PUBG</button>
-      <button class="ns-suggestion" data-game-filter="8bp" type="button" aria-pressed="false">8BP</button>
-      <button class="ns-suggestion" data-game-filter="play-tgt" type="button" aria-pressed="false">PLAY TGT</button>
+  </details>
+
+
+  <!-- THƯ VIỆN GAME: Tự tạo thẻ có ảnh từ từng <article class="app-card"> hiện có. -->
+  <section class="ns-game-picker" id="nsGamePicker" aria-labelledby="nsGamePickerTitle">
+    <div class="ns-game-picker-top">
+      <div><span class="ns-game-picker-eyebrow">GAME ĐANG CÓ</span><h3 id="nsGamePickerTitle">Chọn game rồi chọn hack anh em muốn tải</h3><p>Game mới cập nhật được xếp lên đầu.</p></div>
+      <span class="ns-game-picker-total" id="nsGamePickerTotal">ĐANG TẢI</span>
     </div>
-    <div class="ns-search-result" id="searchResultStatus" role="status" aria-live="polite">Hiển thị toàn bộ ứng dụng</div>
+    <div class="ns-game-picker-grid" id="nsGamePickerGrid" aria-label="Danh sách game đang có"></div>
+    <div class="ns-game-picker-no-results" id="nsGamePickerNoResults" hidden>Chưa có game phù hợp với tìm kiếm.</div>
+  </section>
+  <div class="ns-selected-game" id="nsSelectedGame" hidden>
+    <div><span class="ns-selected-game-eyebrow">PHIÊN BẢN HIỆN CÓ</span><strong id="nsSelectedGameTitle">Game đã chọn</strong><p id="nsSelectedGameHint">Bản mới nhất nằm trên cùng.</p></div>
+    <button type="button" id="nsBackToGames">← Chọn game khác</button>
   </div>
+
+
+
+
+
   <div class="ns-global-empty" id="emptyState" hidden>
     <strong>Chưa có ứng dụng phù hợp</strong>
     <span>Thử gợi ý khác hoặc chọn “Tất cả” để xem lại.</span>
     <button id="clearSearchBtn" type="button">Xem tất cả ứng dụng</button>
   </div>
 
+<!-- MỖI GAME CÓ ÍT NHẤT 1 APP SẼ TỰ HIỆN ẢNH BÌA TRONG DANH SÁCH GAME. -->
+<!-- Muốn đổi ảnh game: thêm data-game-cover="ẢNH BÌA/TEN-ANH.jpg" vào 1 card của game đó. -->
+<!-- Thêm game mới bằng data-game="ten-game"; tùy chọn data-game-label="Tên hiển thị". -->
 <!-- SỬA NGÀY + GIỜ TẠI data-updated="YYYY-MM-DDTHH:mm" CỦA TỪNG THẺ <article> -->
 <!-- Ví dụ: data-updated="2026-11-04T21:30" => hiện 04/11/2026 • 21:30 và sắp xếp theo giờ. -->
 <!-- Ngày cũ dạng YYYY-MM-DD vẫn chạy; không tự đoán giờ cho những bản cũ. -->
@@ -1364,6 +1546,24 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 </div>
 </div>
 </article>
+
+<article class="app-card" data-platform="ios" data-access="nokey" data-game="zing-speed" data-category="zing-speed" data-name="ZING SPEED V1 " data-updated="2026-11-08T09:55" data-version="" data-size="" data-description="" data-changelog="" data-history="">
+<span class="key-status-tag no-key">NO KEY</span>
+<button aria-label="Xem ảnh MENU ZING SPEED V1   " class="app-media" data-preview="ẢNH BÌA/382073c4-2605-4318-ab49-9f6e116e4fc0.jpg" data-title="ZING SPEED V1" type="button">
+<img alt="ZING SPEED V1 " loading="eager" src="ẢNH BÌA/382073c4-2605-4318-ab49-9f6e116e4fc0.jpg"/>
+<span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
+</button>
+<div class="app-body">
+<div class="app-title-row">
+<img alt="" class="app-icon" loading="lazy" src="ICON/unnamed.png"/>
+<div><h3>2 BẢN CRACK ZINGSPEED  </h3><p>Cập nhật ngày 08/11</p></div>
+</div>
+<div class="app-actions">
+<a class="download-btn" href="https://t.me/sonchoigame23/539" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+</div>
+</div>
+</article>
+
 <article class="app-card" data-platform="ios" data-access="nokey" data-game="aov" data-category="aov" data-name="MENU MARCO VIP " data-updated="2026-11-01" data-version="" data-size="" data-description="" data-changelog="" data-history="">
 <span class="key-status-tag no-key">NO KEY</span>
 <button aria-label="Xem ảnh MENU MARCOVIP   " class="app-media" data-preview="ẢNH BÌA/36fe493d-04e4-4796-abe3-9671d1682a53.jpg" data-title="MARCO VIP" type="button">
@@ -1420,28 +1620,12 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     <div class="ns-category-heading">
       <div class="ns-category-eyebrow">ANDROID / KHU RIÊNG <span class="ns-count" data-count-for="android">00 ỨNG DỤNG</span></div>
       <h3>Android • Ứng dụng</h3>
-      <p>Đây là thẻ mẫu Android, sẽ hiển thị ứng dụng khi có bản mới.</p>
+      <p>Những bản Android sẽ hiển thị theo từng game khi có cập nhật.</p>
     </div>
   </div>
   <div class="app-grid ns-section-grid">
 
-<!-- CARD ANDROID MẪU: sao chép <article> này để thêm ứng dụng Android thực tế.
-     Đổi data-game="aov" thành tft, free-fire, pubg, 8bp hoặc play-tgt tùy game.
-     Khi có link thật: thay nút disabled bằng <a class="download-btn" href="LINK_TẢI">Tải xuống</a>.
--->
-<article class="app-card android-demo-card" data-demo="true" data-platform="android" data-access="nokey" data-game="aov" data-category="aov" data-name="AOV Android mẫu thêm ứng dụng">
-  <div class="android-demo-cover"><span class="android-demo-symbol"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 7-2-3M18 7l2-3M4 13a8 8 0 0 1 16 0v6H4v-6ZM2 13v5M22 13v5M8 19v3M16 19v3"></path><path d="M8 10h.01M16 10h.01"></path></svg></span><span class="android-demo-label">ANDROID • MẪU</span></div>
-  <div class="app-body">
-    <div class="app-title-row">
-      <div class="android-demo-app-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 7-2-3M18 7l2-3M4 13a8 8 0 0 1 16 0v6H4v-6ZM2 13v5M22 13v5M8 19v3M16 19v3"></path><path d="M8 10h.01M16 10h.01"></path></svg></div>
-      <div><h3>AOV Android • Bản mẫu</h3><p>Thẻ mẫu cho ứng dụng Android sắp tới</p></div>
-    </div>
-    <div class="app-actions one-action"><button class="download-btn android-disabled" type="button" disabled>Chưa có link tải</button></div>
-  </div>
-</article>
-
-  </div>
-  <p class="ns-section-empty" hidden>Chưa có bản Android phù hợp với tìm kiếm.</p>
+</div>
 </div>
 </section>
 
@@ -1454,14 +1638,14 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
       <p>Những ứng dụng anh em đã bấm ♥ để lưu. Tất cả nằm riêng ở đây, mở lại và tải nhanh bất cứ lúc nào trên trình duyệt này.</p>
       <div class="ns-favorites-top-actions">
         <span class="ns-favorites-number"><strong id="nsFavoritePageCount">0</strong> ứng dụng đã lưu</span>
-        <a href="#ios-key" class="ns-favorites-browse">+ Tìm thêm game ↗</a>
+        <a href="#apps" class="ns-favorites-browse">+ Tìm thêm game ↗</a>
       </div>
     </div>
     <div class="ns-favorites-empty" id="nsFavoritesEmpty" hidden>
       <span class="ns-favorites-bigheart" aria-hidden="true">♡</span>
       <h2>Chưa lưu ứng dụng nào</h2>
       <p>Vào Tải game, bấm nút ♥ Yêu thích trên app muốn lưu. App đó sẽ xuất hiện tại đây.</p>
-      <a href="#ios-key" class="ns-favorites-browse">Khám phá ứng dụng ↗</a>
+      <a href="#apps" class="ns-favorites-browse">Khám phá ứng dụng ↗</a>
     </div>
     <div class="app-grid ns-favorites-grid" id="nsFavoritesGrid" aria-live="polite"></div>
   </section>
@@ -1627,15 +1811,16 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   let activeErrorUrl = '';
 
   const appSearch = document.getElementById('appSearch');
-  const gameButtons = [...document.querySelectorAll('[data-game-filter]')];
-  const appCards = [...document.querySelectorAll('.app-card')];
-  const realAppCards = appCards.filter(card => !card.dataset.demo);
+  let gameButtons = [...document.querySelectorAll('[data-game-filter]')];
+  const appCards = [...document.querySelectorAll('.app-card:not([data-demo])')];
+  const realAppCards = appCards;
   const sections = [...document.querySelectorAll('.ns-category-section')];
   const emptyState = document.getElementById('emptyState');
   const appCount = document.getElementById('appCount');
   const searchStatus = document.getElementById('searchResultStatus');
 
   let activeGame = 'all';
+  let browseMode = 'picker'; // chọn game trước; game, search hoặc all sẽ hiện các phiên bản.
   // Yêu thích dùng một trang riêng, không ẩn/thay đổi danh sách Tải game.
 
   const setBodyLock = () => {
@@ -1786,83 +1971,279 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '');
 
+
+  // Một nguồn ngày/giờ duy nhất: 2026-11-08T14:35 (ưu tiên), 2026-11-08 (hợp lệ).
+  // Hỗ trợ cả dữ liệu cũ như 2026-11-6. Thiếu ngày để cuối, không tự bịa thời gian.
+  const getUpdatedInfo = card => {
+    const raw = (card.dataset.updated || '').trim();
+    const m = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})(?:T(\d{1,2}):(\d{2}))?$/);
+    if (!m) return null;
+    const [year, month, day, hour, minute] = [Number(m[1]), Number(m[2]), Number(m[3]), Number(m[4] || 0), Number(m[5] || 0)];
+    if (month < 1 || month > 12 || day < 1 || day > 31 || hour > 23 || minute > 59) return null;
+    const stamp = Date.UTC(year, month - 1, day, hour, minute);
+    const check = new Date(stamp);
+    if (check.getUTCFullYear() !== year || check.getUTCMonth()+1 !== month || check.getUTCDate() !== day || check.getUTCHours() !== hour || check.getUTCMinutes() !== minute) return null;
+    const d = String(day).padStart(2,'0') + '/' + String(month).padStart(2,'0') + '/' + year;
+    const hasTime = m[4] !== undefined;
+    const timeLabel = hasTime ? `${String(hour).padStart(2,'0')}:${String(minute).padStart(2,'0')}` : '';
+    return {timestamp:stamp, display:hasTime ? `Cập nhật ${d} • ${timeLabel}` : `Cập nhật ngày ${day}/${month}`, short:hasTime ? `${d} • ${timeLabel}` : d};
+  };
+  const getUpdatedStamp = card => getUpdatedInfo(card)?.timestamp ?? -Infinity;
+  // data-game quyết định đúng TÊN GAME. Chỉ game có ít nhất 1 app mới xuất hiện ở đây.
+  const toGameSlug = value => normalize(value).replace(/đ/g,'d').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const gameDirectory = {
+    aov:{title:'Liên Quân Mobile',short:'AOV',aliases:'lq lien quan lienquan arena of valor',emblem:'⚔'},
+    pubg:{title:'PUBG Mobile',short:'PUBG',aliases:'pubg battleground',emblem:'◎'},
+    'free-fire':{title:'Free Fire',short:'FREE FIRE',aliases:'ff freefire garena',emblem:'✦'},
+    tft:{title:'Đấu Trường Chân Lý',short:'TFT',aliases:'tft dtcl dau truong chan ly',emblem:'♟'},
+    '8bp':{title:'8 Ball Pool',short:'8BP',aliases:'8bp 8 ball pool bida',emblem:'⑧'},
+    'play-tgt':{title:'Play Together',short:'PLAY TGT',aliases:'play together playtogether',emblem:'♫'},
+    fc:{title:'FC Mobile',short:'FC MOBILE',aliases:'fcmobile fc mobile fifa',emblem:'⚽'},
+    'zing-speed':{title:'Zing Speed',short:'ZING SPEED',aliases:'zing speed zingspeed zing speed mobile zing speed racing zsm đua xe dua xe',emblem:'🏎️'},
+    'game-khac':{title:'Các game khác',short:'GAME KHÁC',aliases:'cac game khac game khac other games others game moi khac',emblem:'🎮'}
+  };
+  const getGameKey = card => {
+    const key = toGameSlug(card.dataset.game || card.dataset.category || 'game-khac');
+    if (['aov','lq','lien-quan','lien-quan-mobile','arena-of-valor'].includes(key)) return 'aov';
+    if (['freefire','ff','garena-free-fire'].includes(key)) return 'free-fire';
+    if (['tft','dtcl','dau-truong-chan-ly'].includes(key)) return 'tft';
+    if (['8-ball-pool','8ballpool'].includes(key)) return '8bp';
+    if (['play-together','playtogether'].includes(key)) return 'play-tgt';
+    if (['fc-mobile','fcmobile','fifa-mobile'].includes(key)) return 'fc';
+    if (['zingspeed','zing-speed-mobile','zsm'].includes(key)) return 'zing-speed';
+    if (['cac-game-khac','game-khac','other-games','others'].includes(key)) return 'game-khac';
+    return key || 'game-khac';
+  };
+  const getGameInfo = (key, card) => gameDirectory[key] || {
+    title: (card?.dataset.gameLabel || card?.dataset.game || key).trim().replace(/[-_]/g,' ').toUpperCase(),
+    short: (card?.dataset.gameLabel || card?.dataset.game || key).trim().replace(/[-_]/g,' ').toUpperCase(),
+    aliases: key.replace(/-/g,' '),emblem:'▦'
+  };
+  const getPlatformSection = card => {
+    if ((card.dataset.platform || '').toLowerCase() === 'android') return 'android';
+    return (card.dataset.access || '').toLowerCase() === 'key' ? 'ios-key' : 'ios-nokey';
+  };
+  const cardOriginalOrder = new Map(realAppCards.map((card,i)=>[card,i]));
+  const gameMap = new Map();
+  realAppCards.forEach(card=>{
+    const key = getGameKey(card);
+    const stamp = getUpdatedStamp(card);
+    if (!gameMap.has(key)) gameMap.set(key,{key, ...getGameInfo(key,card), cards:[], latest:-Infinity, latestCard:null, overrideCover:''});
+    const entry = gameMap.get(key);
+    entry.cards.push(card);
+    if (!entry.latestCard || stamp > entry.latest) {entry.latest = stamp;entry.latestCard = card;}
+    if (card.dataset.gameCover && !entry.overrideCover) entry.overrideCover = card.dataset.gameCover;
+  });
+  const gameList = [...gameMap.values()].sort((a,b)=>b.latest-a.latest || a.title.localeCompare(b.title,'vi'));
+  const gameOrder = new Map(gameList.map((game,i)=>[game.key,i]));
+  const sectionOrder = new Map(sections.map((section,i)=>[section.id,i]));
+  const gamePickerGrid = document.getElementById('nsGamePickerGrid');
+  const gamePicker = document.getElementById('nsGamePicker');
+  const selectedBar = document.getElementById('nsSelectedGame');
+  const platformShortcuts = document.querySelector('.ns-section-shortcuts');
+  const gameTiles = new Map();
+
+  // Khung ảnh tự lấy từ card game mới nhất; có thể đổi riêng bằng data-game-cover trên <article>.
+  if (gamePickerGrid) {
+    gameList.forEach((game,i)=>{
+      const tile = document.createElement('button');
+      tile.type = 'button';
+      tile.className = 'ns-game-tile';
+      tile.dataset.selectGame = game.key;
+      tile.setAttribute('aria-pressed','false');
+      tile.setAttribute('aria-label',`Xem các phiên bản ${game.title}`);
+      tile.innerHTML = '<img class="ns-game-tile-image" loading="lazy" alt=""><span class="ns-game-tile-info"><strong></strong><span class="ns-game-tile-updated"></span><span class="ns-game-tile-bottom"><small></small><span class="ns-game-tile-fresh"></span></span></span>';
+      const iconSrc = game.latestCard?.querySelector('.app-icon')?.getAttribute('src') || game.overrideCover || game.latestCard?.querySelector('.app-media img')?.getAttribute('src') || '';
+      const img = tile.querySelector('img');
+      if (iconSrc) img.src = iconSrc;
+      img.alt = game.title;
+      tile.querySelector('.ns-game-tile-fresh').textContent = i===0 ? 'Mới nhất' : '';
+      if (i!==0) tile.querySelector('.ns-game-tile-fresh').hidden = true;
+      tile.querySelector('.ns-game-tile-info strong').textContent = game.title;
+      tile.querySelector('.ns-game-tile-updated').textContent = game.latestCard && getUpdatedInfo(game.latestCard) ? `Cập nhật ${getUpdatedInfo(game.latestCard).short}` : 'Chưa rõ ngày cập nhật';
+      tile.querySelector('.ns-game-tile-bottom small').textContent = `${game.cards.length} phiên bản`;
+      gamePickerGrid.append(tile);
+      gameTiles.set(game.key,tile);
+    });
+    const total = document.getElementById('nsGamePickerTotal');
+    if (total) total.textContent = `${gameList.length} GAME`;
+  }
+
+  // Chỉ tạo nhóm có ít nhất một ứng dụng thật.
+  // Khi thêm app mới với data-platform / data-access / data-game,
+  // nhóm và vị trí được tạo và sắp xếp lại tự động theo data-updated.
+  function buildGameLibrary() {
+    const buckets = new Map();
+    const existing = new Map();
+    realAppCards.forEach(card=>{
+      const code=getPlatformSection(card)+':'+getGameKey(card);
+      if (!existing.has(code)) existing.set(code,[]);
+      existing.get(code).push(card);
+    });
+    sections.forEach(section=>{
+      const grid=section.querySelector(':scope > .ns-section-grid');
+      if (!grid) return;
+      const wrapper=document.createElement('div');
+      wrapper.className='ns-game-groups';
+      const groups=[];
+      gameList.forEach(game=>{
+        const cards=existing.get(section.id+':'+game.key) || [];
+        if (!cards.length) return; // Không hiển thị mục rỗng.
+        const group=document.createElement('section');
+        group.className='ns-game-group';
+        group.dataset.gameBucket=game.key;
+        group.setAttribute('aria-label',game.title);
+        group.innerHTML='<div class="ns-game-head"><span class="ns-game-emblem" aria-hidden="true"></span><div class="ns-game-info"><h4></h4><p class="ns-game-last"></p></div><span class="ns-game-count"></span></div><div class="app-grid ns-game-grid"></div>';
+        group.querySelector('.ns-game-emblem').textContent=game.emblem;
+        group.querySelector('h4').textContent=game.title;
+        cards.sort((a,b)=>getUpdatedStamp(b)-getUpdatedStamp(a)||cardOriginalOrder.get(a)-cardOriginalOrder.get(b));
+        cards.forEach(card=>group.querySelector('.ns-game-grid').append(card));
+        const date=getUpdatedInfo(cards[0]);
+        group.dataset.latestTimestamp=String(getUpdatedStamp(cards[0]));
+        group.querySelector('.ns-game-last').textContent=date ? `Mới nhất: ${date.short}` : 'Chưa có ngày cập nhật';
+        group.querySelector('.ns-game-count').textContent=`${cards.length} APP`;
+        groups.push(group);
+        buckets.set(section.id+':'+game.key,group);
+      });
+      groups.sort((a,b)=>Number(b.dataset.latestTimestamp)-Number(a.dataset.latestTimestamp) || gameOrder.get(a.dataset.gameBucket)-gameOrder.get(b.dataset.gameBucket));
+      groups.forEach(group=>wrapper.append(group));
+      grid.replaceWith(wrapper);
+      const badge=document.createElement('span');
+      badge.className='ns-section-updated';
+      section.querySelector('.ns-category-heading')?.append(badge);
+    });
+  }
+  buildGameLibrary();
+
+  // Cập nhật trạng thái chip & thẻ game đang chọn.
   const syncGameButtons = () => {
-    gameButtons.forEach(button => {
-      const selected = (button.dataset.gameFilter || 'all') === activeGame;
-      button.classList.toggle('active', selected);
-      button.setAttribute('aria-pressed', String(selected));
+    gameButtons.forEach(button=>{
+      const on=(button.dataset.gameFilter||'all')===activeGame;
+      button.classList.toggle('active',on);
+      button.setAttribute('aria-pressed',String(on));
+    });
+    gameTiles.forEach((tile,key)=>{
+      const on=browseMode==='game'&&activeGame===key;
+      tile.classList.toggle('is-active',on);
+      tile.setAttribute('aria-pressed',String(on));
     });
   };
-
-  const applyFilters = () => {
-    const query = normalize(appSearch?.value.trim());
-    let visible = 0;
-    let demoVisible = 0;
-
-    appCards.forEach(card => {
-      const indexed = [card.dataset.name, card.dataset.game,
-        card.querySelector('h3')?.textContent, card.dataset.category]
-        .map(normalize).join(' ');
-      const gameMatches = activeGame === 'all' || card.dataset.game === activeGame;
-      const show = (!query || indexed.includes(query)) && gameMatches;
-      card.hidden = !show;
-      if (show && card.dataset.demo) demoVisible += 1;
-      if (show && !card.dataset.demo) visible += 1;
-    });
-
-    // Giữ nguyên từng khu độc lập; chỉ ẩn khu trống khi có bộ lọc đang được áp dụng.
-    const isFiltering = Boolean(query) || activeGame !== 'all';
-    sections.forEach(section => {
-      const shown = section.querySelectorAll('.app-card:not([hidden])').length;
-      section.hidden = isFiltering && shown === 0;
-      const count = section.querySelector('.ns-count');
-      const isAndroid = section.id === 'android';
-      if (count) count.textContent = isAndroid ? (shown ? 'BẢN MẪU' : '0 BẢN') : `${String(shown).padStart(2, '0')} ỨNG DỤNG`;
-    });
-
-    if (emptyState) {
-      emptyState.hidden = visible + demoVisible !== 0;
-      const title = emptyState.querySelector('strong');
-      const desc = emptyState.querySelector('span');
-      if (title) title.textContent = 'Chưa có ứng dụng phù hợp';
-      if (desc) desc.textContent = 'Thử gợi ý khác hoặc chọn “Tất cả” để xem lại.';
-    }
-    if (searchStatus) {
-      searchStatus.textContent = isFiltering
-        ? `Tìm thấy ${visible} ứng dụng${demoVisible ? ' + 1 thẻ Android mẫu' : ''}`
-        : `Đang hiển thị ${realAppCards.length} ứng dụng iOS • 1 thẻ Android mẫu`;
-    }
+  const queryMatchesCard = (card,query) => {
+    if(!query) return true;
+    const game = gameMap.get(getGameKey(card));
+    const words=[card.dataset.name,card.dataset.category,card.dataset.game,card.querySelector('h3')?.textContent,game?.title,game?.short,game?.aliases].map(normalize).join(' ');
+    return words.includes(query) || words.replace(/\s+/g,'').includes(query.replace(/\s+/g,''));
   };
-
-  appSearch?.addEventListener('input', () => {
-    activeGame = 'all';
+  function sortSectionsByDisplayedApps() {
+    const anchor=document.createComment('NSMOD_SORTED_SECTIONS_END');
+    const lastSection=sections[sections.length-1];
+    lastSection.after(anchor);
+    sections.forEach(section=>{
+      const activeCards=[...section.querySelectorAll('.app-card:not([hidden])')];
+      section.dataset.currentTimestamp=String(activeCards.length?Math.max(...activeCards.map(getUpdatedStamp)):-Infinity);
+    });
+    const ordered=[...sections].sort((a,b)=>Number(b.dataset.currentTimestamp)-Number(a.dataset.currentTimestamp)||sectionOrder.get(a.id)-sectionOrder.get(b.id));
+    ordered.forEach(section=>anchor.parentNode.insertBefore(section,anchor));
+    anchor.remove();
+    if(platformShortcuts) ordered.forEach(section=>{
+      const link=platformShortcuts.querySelector(`.ns-shortcut[href="#${section.id}"]`);
+      if(link) platformShortcuts.append(link);
+    });
+  }
+  const applyFilters=()=>{
+    const query=normalize(appSearch?.value.trim());
+    let visible=0;
+    appCards.forEach(card=>{
+      const gameMatch=browseMode!=='game'||getGameKey(card)===activeGame;
+      const matches=browseMode!=='search'||queryMatchesCard(card,query);
+      const show=gameMatch&&matches;
+      card.hidden=!show;
+      if(show) visible++;
+    });
+    gameTiles.forEach((tile,key)=>{
+      tile.hidden=Boolean(query)&&!gameMap.get(key).cards.some(card=>queryMatchesCard(card,query));
+    });
+    const visibleTiles=[...gameTiles.values()].filter(tile=>!tile.hidden).length;
+    const noResults=document.getElementById('nsGamePickerNoResults');
+    if(noResults) noResults.hidden=visibleTiles!==0;
+    const showResults=browseMode==='game'||browseMode==='all';
+    if(selectedBar){
+      selectedBar.hidden=!showResults;
+      const title=document.getElementById('nsSelectedGameTitle');
+      const hint=document.getElementById('nsSelectedGameHint');
+      if(title) title.textContent=browseMode==='game'?gameMap.get(activeGame)?.title||'Game':'Tất cả phiên bản';
+      if(hint) hint.textContent=browseMode==='game'?`${gameMap.get(activeGame)?.cards.length||0} phiên bản hiện có • Mới cập nhật lên trước`:'Các bản đang có • Mới cập nhật lên trước';
+    }
+    sections.forEach(section=>{
+      const groups=[...section.querySelectorAll('.ns-game-group')];
+      let total=0;
+      groups.forEach(group=>{
+        const shown=[...group.querySelectorAll('.app-card:not([hidden])')];
+        const isSelected=browseMode!=='game'||group.dataset.gameBucket===activeGame;
+        group.hidden=!showResults||!isSelected||shown.length===0;
+        if(!group.hidden) total+=shown.length;
+        const count=group.querySelector('.ns-game-count');
+        if(count) count.textContent=`${shown.length} APP`;
+      });
+      section.hidden=!showResults||total===0; // Android / Có Key / No Key rỗng: ẩn hẳn.
+      const count=section.querySelector('.ns-count');
+      if(count) count.textContent=`${String(total).padStart(2,'0')} ỨNG DỤNG`;
+      const newest=[...section.querySelectorAll('.app-card:not([hidden])')].sort((a,b)=>getUpdatedStamp(b)-getUpdatedStamp(a))[0];
+      const latestDate=newest&&getUpdatedInfo(newest);
+      const badge=section.querySelector('.ns-section-updated');
+      if(badge) badge.textContent=latestDate?`↗ MỚI NHẤT: ${latestDate.short}`:'';
+    });
+    if(showResults) sortSectionsByDisplayedApps();
+    if(emptyState) emptyState.hidden=true; // Không mở bảng lỗi rườm rà.
+    if(searchStatus){
+      searchStatus.textContent=query?`Tìm thấy ${visibleTiles} game phù hợp • Chọn ảnh game để xem bản tải`:`${gameList.length} game có sẵn • Chọn ảnh game để xem bản tải`;
+    }
     syncGameButtons();
+  };
+  const selectGame=(key,scroll=true)=>{
+    if(!gameMap.has(key)) return;
+    browseMode='game';activeGame=key;
+    if(appSearch) appSearch.value='';
+    if(searchDisclosure) searchDisclosure.open=false;
+    applyFilters();
+    if(scroll) document.getElementById('nsSelectedGame')?.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+  const showAllVersions=(scroll=true)=>{
+    browseMode='all';activeGame='all';
+    if(appSearch) appSearch.value='';
+    if(searchDisclosure) searchDisclosure.open=false;
+    applyFilters();
+    if(scroll) document.getElementById('nsSelectedGame')?.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+  const showGamePicker=(scroll=true)=>{
+    browseMode='picker';activeGame='all';
+    if(appSearch) appSearch.value='';
+    if(searchDisclosure) searchDisclosure.open=false;
+    applyFilters();
+    if(scroll) gamePicker?.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+  gameTiles.forEach((tile,key)=>tile.addEventListener('click',()=>selectGame(key)));
+  // Chỉ lọc các ô ảnh game khi tìm; bản tải không bung ra cho đến lúc chọn game.
+  appSearch?.addEventListener('input',()=>{
+    activeGame='all';browseMode='picker';
     applyFilters();
   });
-
-  gameButtons.forEach(button => button.addEventListener('click', () => {
-    activeGame = button.dataset.gameFilter || 'all';
-    // Gợi ý là lối tắt tìm kiếm; xóa query cũ để kết quả không bị chặn bởi từ khóa khác.
-    if (appSearch) appSearch.value = '';
-    syncGameButtons();
-    applyFilters();
-  }));
-
-  document.getElementById('clearSearchBtn')?.addEventListener('click', () => {
-    if (appSearch) appSearch.value = '';
-    activeGame = 'all';
-    syncGameButtons();
-    applyFilters();
+  const searchDisclosure=document.getElementById('nsSearchDisclosure');
+  searchDisclosure?.addEventListener('toggle',()=>{
+    if(searchDisclosure.open){
+      appSearch?.focus({preventScroll:true});
+    } else if(appSearch?.value) {
+      appSearch.value='';
+      applyFilters();
+    }
   });
-
-  document.querySelectorAll('.ns-shortcut').forEach(link => link.addEventListener('click', () => {
-    if (appSearch) appSearch.value = '';
-    activeGame = 'all';
-    syncGameButtons();
-    applyFilters();
+  gameButtons.forEach(button=>button.addEventListener('click',()=>{
+    const key=button.dataset.gameFilter||'all';
+    if(key==='all') showGamePicker(false);else selectGame(key,false);
   }));
-
-  if (appCount) appCount.textContent = String(realAppCards.length).padStart(2, '0');
+  document.getElementById('nsBackToGames')?.addEventListener('click',()=>showGamePicker());
+  document.getElementById('clearSearchBtn')?.addEventListener('click',()=>showGamePicker());
+  if(appCount) appCount.textContent=String(realAppCards.length).padStart(2,'0');
   applyFilters();
   // ===== TỰ ĐỘNG TẠO LINK ĐẾN TỪNG THẺ ỨNG DỤNG =====
   // data-name là tên cố định để tạo URL #app-<slug>. Khi thêm card mới, chỉ sửa data-name.
@@ -1956,33 +2337,8 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   });
 
   // === DUY NHẤT 1 CHỖ CẦN ĐỔI KHI CẬP NHẬT APP: data-updated="YYYY-MM-DD" ===
-  // Ví dụ: data-updated="2026-11-04". Không cần sửa dòng "Cập nhật ngày" nữa.
-  // Sửa duy nhất data-updated trong <article> để cập nhật cả ngày + giờ:
-  //   data-updated="2026-11-04T21:30"  (ngày 04/11/2026 lúc 21:30, giờ Việt Nam)
   // Các card cũ chỉ có YYYY-MM-DD vẫn hoạt động, nhưng không hiển thị giờ chưa xác định.
-  const parseAppUpdated = card => {
-    const value = (card.dataset.updated || '').trim();
-    const match = value.match(/^(\d{4})-(\d{2})-(\d{2})(?:T([01]\d|2[0-3]):([0-5]\d))?$/);
-    if (!match) return null;
-    const year = Number(match[1]);
-    const month = Number(match[2]);
-    const day = Number(match[3]);
-    const hour = Number(match[4] ?? 0);
-    const minute = Number(match[5] ?? 0);
-    const hasTime = match[4] !== undefined;
-    // Dùng UTC để so sánh chính xác ngày/giờ ghi trong HTML, không bị lệch múi giờ trình duyệt.
-    const timestamp = Date.UTC(year, month - 1, day, hour, minute);
-    const check = new Date(timestamp);
-    if (check.getUTCFullYear() !== year || check.getUTCMonth() !== month - 1 ||
-        check.getUTCDate() !== day || check.getUTCHours() !== hour ||
-        check.getUTCMinutes() !== minute) return null;
-    return {
-      timestamp,
-      display: hasTime
-        ? `Cập nhật ${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}/${year} • ${match[4]}:${match[5]}`
-        : `Cập nhật ngày ${day}/${month}`
-    };
-  };
+  const parseAppUpdated = card => getUpdatedInfo(card);
 
   // Đồng bộ cả ngày và giờ trên card từ một thuộc tính data-updated.
   realAppCards.forEach(card => {
@@ -2022,12 +2378,8 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     if (!id || !id.startsWith('app-')) return;
     const card = document.getElementById(id);
     if (!card?.classList.contains('app-card')) return;
-    if (appSearch) appSearch.value = '';
-    activeGame = 'all';
-    syncGameButtons();
-    applyFilters();
     activatePage('apps');
-    applyFilters();
+    selectGame(getGameKey(card),false);
     card.classList.remove('ns-app-spotlight');
     void card.offsetWidth;
     card.classList.add('ns-app-spotlight');
@@ -2341,13 +2693,10 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     catch (_) { id = ''; }
     if (id.startsWith('app-')) { focusSharedApp(id); return; }
     const to = id === 'favorites' ? 'favorites'
-      : id === 'apps' || id === 'ios-key' || id === 'ios-nokey' || id === 'android' || id === 'latest' ? 'apps'
-      : id === 'hot' ? 'apps' : 'home';
+      : ['apps','all-apps','ios-key','ios-nokey','android','latest','hot'].includes(id) ? 'apps' : 'home';
     if (to === 'apps') {
-      if (appSearch) appSearch.value = '';
-      activeGame = 'all';
-      syncGameButtons();
-      applyFilters();
+      if (id === 'apps') showGamePicker(false);
+      else showAllVersions(false);
     }
     activatePage(to);
     if (to === 'favorites') renderFavorites();
