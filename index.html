@@ -1079,32 +1079,61 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 @media(max-width:420px){#appsPage .ns-game-tile,.ns-game-tile{grid-template-columns:50px minmax(0,1fr);padding:10px 9px;gap:9px}#appsPage .ns-game-tile-image,.ns-game-tile-image{width:50px;height:50px;border-radius:14px}#appsPage .ns-game-tile-info strong,.ns-game-tile-info strong{font-size:.82rem}#appsPage .ns-game-tile-updated,.ns-game-tile-updated{font-size:.58rem}}
 
 
-/* ===== NSMOD / MINI MUSIC DOCK: NHỎ, KHÔNG CHE GAME, KHÔNG POPUP ===== */
+/* ===== NSMOD / ICON NHẠC NỔI: BẤM ĐỂ HIỆN TẠM DỪNG / TẮT ===== */
 .ns-selected-game[hidden]{display:none!important}
 .ns-game-picker{scroll-margin-top:90px}
-.ns-music-section.ns-music-dock{position:fixed;right:15px;bottom:17px;z-index:64;width:330px;max-width:calc(100vw - 30px);margin:0!important;scroll-margin-top:0}
-.ns-music-dock .ns-music-shell{padding:10px 11px!important;border-radius:16px;box-shadow:0 15px 45px rgba(0,0,0,.38);background:linear-gradient(135deg,rgba(19,24,39,.985),rgba(11,18,25,.985));border-color:rgba(170,160,240,.28)}
-.ns-music-dock-main{display:flex;align-items:center;gap:10px;min-width:0}
-.ns-music-dock .ns-music-frame-wrap{flex:0 0 110px;width:110px;height:64px;aspect-ratio:16/9;border-radius:9px}
-.ns-music-dock .ns-music-placeholder{font-size:25px;padding:0}
-.ns-music-dock-copy{flex:1;min-width:0;display:grid;gap:4px}
-.ns-music-dock-copy strong{color:#d7c5ff;font-size:.72rem;letter-spacing:.05em}
-.ns-music-dock .ns-music-status{color:#9eabc0;font-size:.61rem;line-height:1.3;margin:0;min-height:0;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
-.ns-music-dock-actions{display:flex;gap:6px;align-items:center}
-.ns-music-dock-actions :is(button,a){min-width:31px;height:27px;display:grid;place-items:center;cursor:pointer;font-size:.78rem;font-weight:800;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:#f2edff;border-radius:8px;padding:0;text-decoration:none}
-.ns-music-dock-actions :is(button,a):hover{background:rgba(176,142,255,.22);border-color:rgba(176,142,255,.5)}
-.ns-music-dock-actions #nsMusicPlay{color:#c9b7ff}
-.ns-music-config{margin-top:5px;border-top:1px solid rgba(255,255,255,.06)}
-.ns-music-config summary{cursor:pointer;list-style:none;font-weight:700;color:#aab3cb;font-size:.6rem;padding-top:7px}
-.ns-music-config summary::-webkit-details-marker{display:none}
-.ns-music-config summary span{margin-left:5px}
-.ns-music-config .ns-music-controls{gap:6px;padding:8px 1px 2px}
-.ns-music-config .ns-music-label{font-size:.6rem}
-.ns-music-config .ns-music-input{min-height:31px;font-size:.63rem}
-.ns-music-config .ns-music-play{border-radius:8px;padding:6px 9px;font-size:.64rem;min-height:29px;cursor:pointer}
-.ns-music-config small{font-size:.59rem;color:#8d9cb2;line-height:1.4}
-@media(max-width:930px){.ns-music-section.ns-music-dock{right:10px;bottom:calc(78px + env(safe-area-inset-bottom));width:295px}}
-@media(max-width:480px){.ns-music-section.ns-music-dock{width:260px}.ns-music-dock .ns-music-frame-wrap{flex-basis:90px;width:90px;height:55px}.ns-music-dock .ns-music-shell{padding:8px 9px!important}.ns-music-dock-copy strong{font-size:.66rem}.ns-music-dock .ns-music-status{font-size:.57rem}.ns-music-dock-actions :is(button,a){min-width:27px;height:25px}.ns-music-config summary{padding-top:5px}}
+.ns-music-section.ns-music-dock{
+  position:fixed;right:14px;bottom:14px;z-index:64;
+  margin:0!important;width:auto;max-width:calc(100vw - 28px);scroll-margin-top:0;
+}
+.ns-music-dock .ns-music-shell{
+  padding:0!important;border:0;border-radius:99px;background:transparent;
+  box-shadow:none;overflow:visible;
+}
+.ns-music-mini{display:flex;align-items:center;flex-direction:row-reverse;gap:8px}
+.ns-music-mini-icon{
+  display:grid;place-items:center;flex:0 0 46px;width:46px;height:46px;
+  padding:0;border-radius:50%;border:1px solid rgba(199,173,255,.55);
+  color:#f9f5ff;background:linear-gradient(150deg,#8060ce,#343357);
+  box-shadow:0 5px 24px rgba(75,52,160,.34),inset 0 1px 0 rgba(255,255,255,.26);
+  cursor:pointer;transition:transform .2s,box-shadow .2s;
+}
+.ns-music-mini-icon:hover,.ns-music-mini-icon[aria-expanded="true"]{
+  transform:translateY(-1px);box-shadow:0 8px 27px rgba(120,84,220,.42),0 0 0 3px rgba(184,151,255,.10);
+}
+.ns-music-mini-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ns-music-mini-actions{
+  display:flex;align-items:center;gap:6px;padding:5px 7px;border-radius:16px;
+  border:1px solid rgba(187,164,245,.3);
+  background:linear-gradient(140deg,rgba(22,26,44,.97),rgba(11,16,26,.98));
+  box-shadow:0 12px 34px rgba(0,0,0,.32);backdrop-filter:blur(14px);
+}
+.ns-music-mini-actions[hidden]{display:none!important}
+.ns-music-mini-actions button{
+  min-height:33px;white-space:nowrap;padding:0 9px;border-radius:10px;
+  border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.05);
+  color:#f0eafb;font-size:.69rem;font-weight:800;cursor:pointer;transition:background .2s,border-color .2s;
+}
+.ns-music-mini-actions button:hover{background:rgba(172,136,255,.19);border-color:rgba(199,173,255,.48)}
+.ns-music-mini-actions #nsMusicStop{color:#ffd0d6;border-color:rgba(255,130,149,.25)}
+.ns-music-mini-actions #nsMusicStop:hover{background:rgba(255,90,109,.13)}
+/* Player vẫn được nhúng để phát tiếng, nhưng không hiện bảng video. */
+.ns-music-dock .ns-music-frame-wrap{
+  position:fixed!important;left:-10000px!important;top:0!important;
+  width:220px!important;height:220px!important;aspect-ratio:auto!important;
+  opacity:0!important;pointer-events:none!important;overflow:hidden!important;
+}
+.ns-music-dock .ns-music-frame-wrap iframe{width:220px!important;height:220px!important}
+.ns-music-dock .ns-music-placeholder{display:none!important}
+.ns-music-mini-status{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important}
+.ns-music-config{display:none!important}
+@media(max-width:930px){.ns-music-section.ns-music-dock{right:12px;bottom:calc(77px + env(safe-area-inset-bottom))}}
+@media(max-width:480px){
+  .ns-music-section.ns-music-dock{right:10px;max-width:calc(100vw - 20px)}
+  .ns-music-mini-icon{width:43px;height:43px;flex-basis:43px}
+  .ns-music-mini-actions{gap:5px;padding:4px}
+  .ns-music-mini-actions button{min-height:32px;padding:0 7px;font-size:.65rem}
+}
 
 </style>
 </head>
@@ -1683,36 +1712,36 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 
 
 <!-- ===================================================================== -->
-<!-- NSMOD / MINI MUSIC PLAYER — HIỂN THỊ TRÊN MỌI TRANG, KHÔNG HỎI LÚC VÀO -->
-<!-- Bài mặc định sửa tại NS_DEFAULT_MUSIC trong phần JavaScript. -->
-<!-- Trình duyệt có thể CHẶN nhạc tự phát có tiếng; nút ▶ ở đây là dự phòng. -->
+<!-- NSMOD / ICON NHẠC NỔI — chỉ hiện icon; bấm để hiện TẠM DỪNG / TẮT -->
+<!-- Không đổi bài mặc định; chỉnh tại NS_DEFAULT_MUSIC trong JavaScript. -->
+<!-- YouTube có thể chặn phát tự động có tiếng ở một số trình duyệt. -->
 <!-- ===================================================================== -->
-<section class="ns-music-section ns-music-dock" id="music" aria-label="NSMOD Music">
+<section class="ns-music-section ns-music-dock" id="music" aria-label="Điều khiển nhạc NSMOD">
   <div class="ns-music-shell ns-music-compact">
-    <div class="ns-music-dock-main">
-      <div class="ns-music-frame-wrap" id="nsMusicFrameWrap">
-        <div class="ns-music-placeholder" id="nsMusicPlaceholder" aria-hidden="true">♫</div>
-        <iframe id="nsMusicFrame" title="Nhạc YouTube NSMOD" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen hidden></iframe>
-      </div>
-      <div class="ns-music-dock-copy">
-        <strong>♫ NSMOD MUSIC</strong>
-        <p class="ns-music-status" id="nsMusicStatus" aria-live="polite">Đang kết nối nhạc...</p>
-        <div class="ns-music-dock-actions">
-          <button type="button" id="nsMusicPlay" aria-label="Phát bài nhạc NSMOD" title="Bật nhạc">▶</button>
-          <button type="button" id="nsMusicStop" aria-label="Dừng nhạc" title="Dừng nhạc">■</button>
-          <a id="nsMusicExternal" href="https://www.youtube.com/watch?v=DRGy_rObJiI" target="_blank" rel="noopener noreferrer" aria-label="Nghe trên YouTube" title="Mở YouTube">↗</a>
-        </div>
+    <div class="ns-music-mini">
+      <button type="button" class="ns-music-mini-icon" id="nsMusicToggle"
+              aria-expanded="false" aria-controls="nsMusicActions"
+              aria-label="Mở điều khiển nhạc NSMOD" title="Nhạc NSMOD">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><ellipse cx="6.5" cy="18" rx="2.5" ry="2"/><ellipse cx="18.5" cy="16" rx="2.5" ry="2"/></svg>
+      </button>
+      <div class="ns-music-mini-actions" id="nsMusicActions" hidden>
+        <button type="button" id="nsMusicPlay" aria-label="Tạm dừng nhạc" title="Tạm dừng nhạc">⏸ Tạm dừng</button>
+        <button type="button" id="nsMusicStop" aria-label="Tắt nhạc" title="Tắt nhạc">⏹ Tắt</button>
       </div>
     </div>
-    <details class="ns-music-config" id="nsMusicConfig">
-      <summary>Đổi link nhạc <span aria-hidden="true">⌄</span></summary>
+    <p class="ns-music-status ns-music-mini-status" id="nsMusicStatus" role="status" aria-live="polite">Đang kết nối nhạc...</p>
+    <div class="ns-music-frame-wrap" id="nsMusicFrameWrap" aria-hidden="true">
+      <div class="ns-music-placeholder" id="nsMusicPlaceholder">♫</div>
+      <iframe id="nsMusicFrame" title="Nhạc YouTube NSMOD" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" hidden></iframe>
+    </div>
+    <!-- Giữ nguyên dữ liệu bài nhạc/logic cũ; ẩn cấu hình để màn hình chỉ còn icon. -->
+    <div class="ns-music-config" hidden>
       <form class="ns-music-controls" id="nsMusicForm" autocomplete="off">
-        <label class="ns-music-label" for="nsMusicUrl">Link YouTube</label>
-        <input class="ns-music-input" id="nsMusicUrl" type="url" inputmode="url" placeholder="https://youtu.be/..." aria-describedby="nsMusicTip" />
-        <button class="ns-music-play" type="submit">Phát bài này</button>
-        <small id="nsMusicTip">Video bị giới hạn nhúng? Dùng nút ↗ để mở YouTube.</small>
+        <input id="nsMusicUrl" type="url" aria-label="Link nhạc YouTube" />
+        <button type="submit">Phát</button>
       </form>
-    </details>
+      <a id="nsMusicExternal" href="https://www.youtube.com/watch?v=DRGy_rObJiI" target="_blank" rel="noopener noreferrer" tabindex="-1">YouTube</a>
+    </div>
   </div>
 </section>
 
@@ -2649,6 +2678,36 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   const musicStatus = document.getElementById('nsMusicStatus');
   const musicExternal = document.getElementById('nsMusicExternal');
   const musicPlaceholder = document.getElementById('nsMusicPlaceholder');
+  const musicToggle = document.getElementById('nsMusicToggle');
+  const musicActions = document.getElementById('nsMusicActions');
+  let musicPaused = false;
+  const syncMusicButton = () => {
+    if(!musicPlay) return;
+    musicPlay.textContent = musicPaused ? '▶ Tiếp tục' : '⏸ Tạm dừng';
+    musicPlay.setAttribute('aria-label',musicPaused ? 'Tiếp tục phát nhạc' : 'Tạm dừng nhạc');
+    musicPlay.title = musicPaused ? 'Tiếp tục phát nhạc' : 'Tạm dừng nhạc';
+  };
+  musicToggle?.addEventListener('click', () => {
+    const willOpen = !!musicActions?.hidden;
+    if(musicActions) musicActions.hidden = !willOpen;
+    musicToggle.setAttribute('aria-expanded', String(willOpen));
+    musicToggle.setAttribute('aria-label', willOpen ? 'Đóng điều khiển nhạc NSMOD' : 'Mở điều khiển nhạc NSMOD');
+  });
+  document.addEventListener('click', event => {
+    if(!event.target.closest('.ns-music-mini') && musicActions && !musicActions.hidden){
+      musicActions.hidden=true;
+      musicToggle?.setAttribute('aria-expanded','false');
+      musicToggle?.setAttribute('aria-label','Mở điều khiển nhạc NSMOD');
+    }
+  });
+  document.addEventListener('keydown', event => {
+    if(event.key==='Escape' && musicActions && !musicActions.hidden){
+      musicActions.hidden=true;
+      musicToggle?.setAttribute('aria-expanded','false');
+      musicToggle?.setAttribute('aria-label','Mở điều khiển nhạc NSMOD');
+      musicToggle?.focus();
+    }
+  });
   // SỬA LINK NHẠC MẶC ĐỊNH TẠI ĐÂY (KHÔNG SỬ DỤNG list=RD...):
   const NS_DEFAULT_MUSIC = 'https://www.youtube.com/watch?v=DRGy_rObJiI';
   const musicSetStatus = (message, kind='') => {
@@ -2682,6 +2741,8 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     const data=parseYoutubeMusicUrl(raw);
     if(!data){musicSetStatus('Link nhạc không hợp lệ.','error');return;}
     playingUrl=raw;
+    musicPaused=false;
+    syncMusicButton();
     if(musicExternal) musicExternal.href=data.link;
     // file:// không có HTTP Referer => YouTube thường báo Error 153.
     if(location.protocol==='file:'){
@@ -2699,17 +2760,32 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     event.preventDefault();
     startMusic(musicUrlInput?.value?.trim()||NS_DEFAULT_MUSIC,false);
   });
-  musicPlay?.addEventListener('click',()=>{
-    if(musicFrame?.src&&musicFrame.hidden===false){
-      // Điều khiển player trong một thao tác người dùng; nếu chưa load, mở lại từ đầu.
-      musicFrame.contentWindow?.postMessage(JSON.stringify({event:'command',func:'playVideo',args:[]}), 'https://www.youtube.com');
-      musicSetStatus('Đã yêu cầu phát • nếu im, nhấn ▶ trên video.','ok');
-    }else startMusic(musicUrlInput?.value?.trim()||playingUrl,false);
+  const youtubeCommand = command => {
+    if(!musicFrame?.src || musicFrame.hidden) return false;
+    try {
+      musicFrame.contentWindow?.postMessage(JSON.stringify({event:'command',func:command,args:[]}), 'https://www.youtube.com');
+      return true;
+    } catch (_) { return false; }
+  };
+  musicPlay?.addEventListener('click', () => {
+    if(musicPaused){
+      if(!youtubeCommand('playVideo')) startMusic(musicUrlInput?.value?.trim()||playingUrl,false);
+      musicPaused=false;
+      musicSetStatus('Đã yêu cầu tiếp tục nhạc.','ok');
+    } else {
+      youtubeCommand('pauseVideo');
+      musicPaused=true;
+      musicSetStatus('Đã tạm dừng nhạc.');
+    }
+    syncMusicButton();
   });
-  musicStop?.addEventListener('click',()=>{
-    if(musicFrame){musicFrame.removeAttribute('src');musicFrame.hidden=true;}
+  musicStop?.addEventListener('click', () => {
+    youtubeCommand('stopVideo');
+    if(musicFrame){ musicFrame.removeAttribute('src'); musicFrame.hidden=true; }
     if(musicPlaceholder) musicPlaceholder.hidden=false;
-    musicSetStatus('Đã dừng nhạc.');
+    musicPaused=true;
+    syncMusicButton();
+    musicSetStatus('Đã tắt nhạc.');
   });
   // Tự thử phát khi truy cập, KHÔNG bắt người xem chọn nhạc trước khi vào web.
   startMusic(NS_DEFAULT_MUSIC,true);
