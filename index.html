@@ -1316,10 +1316,10 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
   <!-- THƯ VIỆN GAME: Tự tạo thẻ có ảnh từ từng <article class="app-card"> hiện có. -->
   <section class="ns-game-picker" id="nsGamePicker" aria-labelledby="nsGamePickerTitle">
     <div class="ns-game-picker-top">
-      <div><span class="ns-game-picker-eyebrow">GAME ĐANG CÓ</span><h3 id="nsGamePickerTitle">Chọn game để xem bản tải</h3><p>Chọn một game để xem các bản tải mới nhất.</p></div>
+      <div><span class="ns-game-picker-eyebrow">DANH MỤC GAME</span><h3 id="nsGamePickerTitle">Chọn game để xem bản tải</h3><p>Chọn một game để xem các bản tải mới nhất.</p></div>
       <span class="ns-game-picker-total" id="nsGamePickerTotal">ĐANG TẢI</span>
     </div>
-    <div class="ns-game-picker-grid" id="nsGamePickerGrid" aria-label="Danh sách game đang có"></div>
+    <div class="ns-game-picker-grid" id="nsGamePickerGrid" aria-label="Danh mục game"></div>
     <div class="ns-game-picker-no-results" id="nsGamePickerNoResults" hidden>Chưa có game phù hợp với tìm kiếm.</div>
   </section>
   <div class="ns-selected-game" id="nsSelectedGame" hidden>
@@ -1348,10 +1348,11 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
      goose-goose-duck = Goose Goose Duck
      wild-rift      = Liên Minh: Tốc Chiến
      zing-speed     = Zing Speed
+     valorant       = VALORANT (sẵn danh mục ngay cả khi chưa có card)
      game-khac      = Các game khác
      tft, 8bp, fc, play-tgt = các game đã có từ trước
      Muốn thêm game mới nữa? Khai báo trong `const gameDirectory` phía cuối file.
-     Chưa có card tải thật => game chưa xuất hiện ở khu CHỌN GAME.
+     Các game khác cần card tải thật mới xuất hiện; riêng VALORANT hiển thị sẵn.
      Không được chèn <button> vào #nsGamePickerGrid vì JS tự tạo icon.
 -->
 <!-- ===================================================================== -->
@@ -1714,23 +1715,50 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
 
     <!-- ============== GAME: FC MOBILE | data-game="fc" ============== -->
     <!-- THÊM CARD FC MOBILE MỚI NGAY DƯỚI COMMENT NÀY (đúng loại nền tảng). -->
-<article class="app-card" data-platform="ios" data-access="nokey" data-game="FC" data-category="FC" data-name="CRACK FCMOBILE " data-updated="2026-11-05" data-version="" data-size="" data-description="" data-changelog="" data-history="">
+<article class="app-card" data-platform="ios" data-access="nokey" data-game="FC" data-category="FC" data-name="CRACK FCMOBILE " data-updated="2026-11-23T:21:06" data-version="" data-size="" data-description="" data-changelog="" data-history="">
 <span class="key-status-tag no-key">NO KEY</span>
-<button aria-label="Xem ảnh CRACK FCMOBILE   " class="app-media" data-preview="" data-title="FC MOBILE CRACK" type="button">
-<img alt="CRACK FC MOBILE " loading="eager" src=""/>
+<button aria-label="Xem ảnh CRACK FCMOBILE   " class="app-media" data-preview="ẢNH BÌA/ab966cb9-72cb-4620-b696-a1e97435a622.jpg" data-title="FC MOBILE CRACK" type="button">
+<img alt="CRACK FC MOBILE " loading="eager" src="ẢNH BÌA/ab966cb9-72cb-4620-b696-a1e97435a622.jpg"/>
 <span class="platform-chip"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16.7 13.2c0-3 2.5-4.5 2.6-4.6a5.6 5.6 0 0 0-4.4-2.4c-1.9-.2-3.7 1.1-4.7 1.1-1 0-2.5-1.1-4.1-1-2.1 0-4.1 1.2-5.2 3.1-2.2 3.8-.6 9.4 1.6 12.5 1.1 1.5 2.3 3.2 4 3.1 1.6-.1 2.2-1 4.2-1 1.9 0 2.5 1 4.2 1 1.7 0 2.8-1.5 3.9-3 1.2-1.8 1.7-3.5 1.7-3.6-.1 0-3.8-1.5-3.8-5.2ZM13.7 4.2A5.1 5.1 0 0 0 14.9.5a5.2 5.2 0 0 0-3.5 1.8 4.8 4.8 0 0 0-1.2 3.6 4.3 4.3 0 0 0 3.5-1.7Z"></path></svg> iOS</span>
 </button>
 <div class="app-body">
 <div class="app-title-row">
 <img alt="" class="app-icon" loading="lazy" src="ICON/fcmobile.jpg"/>
-<div><h3>ĐANG UPDATE  </h3><p></p></div>
+<div><h3>CRACK FC MOBILE   </h3><p></p></div>
 </div>
 <div class="app-actions">
-<a class="download-btn" href="" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
+<a class="download-btn" href="https://t.me/sonchoigame23/672" rel="noopener noreferrer" target="_blank">Tải xuống <span>↗</span></a>
 </div>
 </div>
 </article>
     <!-- ============== HẾT GAME FC MOBILE ============== -->
+
+
+    <!-- ========== VALORANT | DATA-GAME="valorant" ========== -->
+   
+  
+    <article class="app-card" data-platform="ios" data-access="nokey"
+      data-game="valorant" data-category="valorant" data-name="VALORANT iOS"
+      data-updated="2026-11-23T20:00">
+      <span class="key-status-tag no-key">NO KEY</span>
+      <button type="button" class="app-media" data-preview="ẢNH BÌA/58078294-0d39-4f4e-8747-0aa0c68defd8.jpg" data-title="VALORANT">
+        <img alt="VALORANT" loading="lazy" src="ẢNH BÌA/58078294-0d39-4f4e-8747-0aa0c68defd8.jpg">
+      </button>
+      <div class="app-body">
+        <div class="app-title-row">
+          <img alt="" class="app-icon" src="ICON/VALORANT.jpg">
+          <div><h3>CRACK VALORANT </h3><p>MENU VIP</p></div>
+        </div>
+        <div class="app-actions">
+          <a class="download-btn" href="https://t.me/sonchoigame23/669" target="_blank" rel="noopener noreferrer">Tải xuống ↗</a>
+        </div>
+      </div>
+    </article>
+
+
+    
+
+
   </div>
   <p class="ns-section-empty" hidden>Không có bản iOS no key phù hợp.</p>
 </div>
@@ -2157,7 +2185,8 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     'delta-force':{title:'Delta Force',short:'DELTA FORCE',aliases:'delta force delta phot delta phọt df',emblem:'🎯'},
     'the-spike':{title:'The Spike',short:'THE SPIKE',aliases:'the spike the spike cross volleyball bóng chuyền',emblem:'🏐'},
     'goose-goose-duck':{title:'Goose Goose Duck',short:'GGD',aliases:'goose goose duck ggd ngong ngong vit',emblem:'🪿'},
-    'wild-rift':{title:'Liên Minh: Tốc Chiến',short:'TỐC CHIẾN',aliases:'toc chien tốc chiến wild rift league of legends lien minh toc chien lol mobile',emblem:'⚔️'}
+    'wild-rift':{title:'Liên Minh: Tốc Chiến',short:'TỐC CHIẾN',aliases:'toc chien tốc chiến wild rift league of legends lien minh toc chien lol mobile',emblem:'⚔️'},
+    'valorant':{title:'VALORANT',short:'VALO',aliases:'valorant valo valor valorantt valorant mobile valorant pc',emblem:'🎯'}
   };
   const getGameKey = card => {
     const key = toGameSlug(card.dataset.game || card.dataset.category || 'game-khac');
@@ -2175,6 +2204,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     if (['thespike','the-spike-cross','spike','spike-cross'].includes(key)) return 'the-spike';
     if (['goosegooseduck','ggd','goose-duck'].includes(key)) return 'goose-goose-duck';
     if (['toc-chien','lien-minh-toc-chien','wildrift','lol-wild-rift','league-of-legends-wild-rift'].includes(key)) return 'wild-rift';
+    if (['valorant','valo','val','valor','valorant-mobile','valorantmobile','valorant-pc'].includes(key)) return 'valorant';
     if (['cac-game-khac','game-khac','other-games','others'].includes(key)) return 'game-khac';
     return key || 'game-khac';
   };
@@ -2198,6 +2228,12 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
     if (!entry.latestCard || stamp > entry.latest) {entry.latest = stamp;entry.latestCard = card;}
     if (card.dataset.gameCover && !entry.overrideCover) entry.overrideCover = card.dataset.gameCover;
   });
+  // VALORANT luôn là một danh mục trong Chọn game, kể cả chưa đăng card tải.
+  // Khi thêm <article data-game="valorant">, số lượng và bản mới nhất cập nhật tự động.
+  if (!gameMap.has('valorant')) {
+    gameMap.set('valorant', {key:'valorant', ...getGameInfo('valorant'), cards:[], latest:-Infinity, latestCard:null, overrideCover:''});
+  }
+  const valorantFallbackImage = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzMyMWQzNCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBjMTMyNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiByeD0iMzYiIGZpbGw9InVybCgjZykiLz48cGF0aCBkPSJNMzkgNTloNDJsNDggNzkgNDgtNzloNDBsLTg4IDEzM0wzOSA1OVoiIGZpbGw9IiNmZjUyNjYiLz48cGF0aCBkPSJtMTI5IDE3MCA0NC02N2g0NGwtODggOTFaIiBmaWxsPSIjZmM4MjkwIi8+PHBhdGggZD0iTTMxIDIxM2gxOTQiIHN0cm9rZT0iI2ZmNTI2NiIgc3Ryb2tlLW9wYWNpdHk9Ii40NSIgc3Ryb2tlLXdpZHRoPSIzIi8+PC9zdmc+';
   const gameList = [...gameMap.values()].sort((a,b)=>b.latest-a.latest || a.title.localeCompare(b.title,'vi'));
   const gameOrder = new Map(gameList.map((game,i)=>[game.key,i]));
   const sectionOrder = new Map(sections.map((section,i)=>[section.id,i]));
@@ -2217,15 +2253,15 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
       tile.setAttribute('aria-pressed','false');
       tile.setAttribute('aria-label',`Xem các phiên bản ${game.title}`);
       tile.innerHTML = '<img class="ns-game-tile-image" loading="lazy" alt=""><span class="ns-game-tile-info"><strong></strong><span class="ns-game-tile-updated"></span><span class="ns-game-tile-bottom"><small></small><span class="ns-game-tile-fresh"></span></span></span>';
-      const iconSrc = game.latestCard?.querySelector('.app-icon')?.getAttribute('src') || game.overrideCover || game.latestCard?.querySelector('.app-media img')?.getAttribute('src') || '';
+      const iconSrc = game.overrideCover || game.latestCard?.querySelector('.app-icon')?.getAttribute('src') || game.latestCard?.querySelector('.app-media img')?.getAttribute('src') || (game.key === 'valorant' ? valorantFallbackImage : '');
       const img = tile.querySelector('img');
       if (iconSrc) img.src = iconSrc;
       img.alt = game.title;
       tile.querySelector('.ns-game-tile-fresh').textContent = i===0 ? 'Mới nhất' : '';
       if (i!==0) tile.querySelector('.ns-game-tile-fresh').hidden = true;
       tile.querySelector('.ns-game-tile-info strong').textContent = game.title;
-      tile.querySelector('.ns-game-tile-updated').textContent = game.latestCard && getUpdatedInfo(game.latestCard) ? `Cập nhật ${getUpdatedInfo(game.latestCard).short}` : 'Chưa rõ ngày cập nhật';
-      tile.querySelector('.ns-game-tile-bottom small').textContent = `${game.cards.length} phiên bản`;
+      tile.querySelector('.ns-game-tile-updated').textContent = game.cards.length ? (game.latestCard && getUpdatedInfo(game.latestCard) ? `Cập nhật ${getUpdatedInfo(game.latestCard).short}` : 'Chưa rõ ngày cập nhật') : 'Đang cập nhật phiên bản';
+      tile.querySelector('.ns-game-tile-bottom small').textContent = game.cards.length ? `${game.cards.length} phiên bản` : 'CHƯA CÓ BẢN TẢI';
       gamePickerGrid.append(tile);
       gameTiles.set(game.key,tile);
     });
@@ -2325,7 +2361,10 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
       if(show) visible++;
     });
     gameTiles.forEach((tile,key)=>{
-      tile.hidden=Boolean(query)&&!gameMap.get(key).cards.some(card=>queryMatchesCard(card,query));
+      const entry = gameMap.get(key);
+      const gameText = [entry.title, entry.short, entry.aliases, entry.key].map(normalize).join(' ');
+      const gameNameMatch = gameText.includes(query);
+      tile.hidden=Boolean(query)&&!gameNameMatch&&!entry.cards.some(card=>queryMatchesCard(card,query));
     });
     const visibleTiles=[...gameTiles.values()].filter(tile=>!tile.hidden).length;
     const noResults=document.getElementById('nsGamePickerNoResults');
@@ -2358,9 +2397,18 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1
       if(badge) badge.textContent=latestDate?`↗ MỚI NHẤT: ${latestDate.short}`:'';
     });
     if(showResults) sortSectionsByDisplayedApps();
-    if(emptyState) emptyState.hidden=true; // Không mở bảng lỗi rườm rà.
+    if (emptyState) {
+      const selectedEmpty = browseMode === 'game' && (gameMap.get(activeGame)?.cards.length || 0) === 0;
+      emptyState.hidden = !selectedEmpty;
+      if (selectedEmpty) {
+        const heading = emptyState.querySelector('strong');
+        const note = emptyState.querySelector('span');
+        if (heading) heading.textContent = `${gameMap.get(activeGame)?.title || 'Game'} — chưa có bản tải`;
+        if (note) note.textContent = 'Danh mục đã hoạt động. Khi thêm card thật với data-game="valorant", bản tải sẽ tự xuất hiện tại đây.';
+      }
+    }
     if(searchStatus){
-      searchStatus.textContent=query?`Tìm thấy ${visibleTiles} game phù hợp • Chọn ảnh game để xem bản tải`:`${gameList.length} game có sẵn • Chọn ảnh game để xem bản tải`;
+      searchStatus.textContent=query?`Tìm thấy ${visibleTiles} game phù hợp • Chọn ảnh game để xem bản tải`:`${gameList.length} danh mục game • Chọn game để xem các bản tải`;
     }
     syncGameButtons();
   };
